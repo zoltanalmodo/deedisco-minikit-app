@@ -6,11 +6,11 @@
   },
   "frame": {
     "version": "1",
-    "name": "deedisco game character generator",
+    "name": "Game NFT Character Generator",
     "iconUrl": "https://deedisco-minikit-app.vercel.app/public/icon.png",
     "homeUrl": "https://deedisco-minikit-app.vercel.app",
     "imageUrl": "https://deedisco-minikit-app.vercel.app/public/image.png",
-    "buttonTitle": "Generate your game character",
+    "buttonTitle": "Generate NFT game characters!",
     "splashImageUrl": "https://deedisco-minikit-app.vercel.app/public/splash.png",
     "splashBackgroundColor": "#eeccff",
     "webhookUrl": "https://deedisco-minikit-app.vercel.app/api/webhook"
