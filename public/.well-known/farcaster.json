@@ -1,0 +1,18 @@
+{
+  "accountAssociation": {
+    "header": "eyJmaWQiOjEwNzY1ODMsInR5cGUiOiJjdXN0b2R5Iiwia2V5IjoiMHhhODZDYmQxOTYyMDg4QjlFODE0N0UxMjI1NzJhMzcxMjJDYTQ0NmMyIn0",
+    "payload": "eyJkb21haW4iOiJiYXNlLW5mdC1uZXh0LTdqcHo2emc5ZC16b2x0YW5hbG1vZG9zLXByb2plY3RzLnZlcmNlbC5hcHAifQ",
+    "signature": "MHg5NTkzOWZkN2U3MWMxNDA0YjZhNmFmY2Q5NWQ5OTEzNjc4ODA4YjU3MjI2ODcxNzVkMzc2MDY3MjAzYzc3NWY2NGUyMWUyNmViNTY2OGRhZjk1YjdlOGU3NmU5OTMzZTk3MDhlY2Q0Y2I3MDliMzJmN2M4NjFkZTNiMzYxM2U5ZjFi"
+  },
+  "frame": {
+    "version": "1",
+    "name": "deedisco - game character generator miniapp",
+    "iconUrl": "https://base-nft-next-7jpz6zg9d-zoltanalmodos-projects.vercel.app/icon.png",
+    "homeUrl": "https://base-nft-next-7jpz6zg9d-zoltanalmodos-projects.vercel.app",
+    "imageUrl": "https://base-nft-next-7jpz6zg9d-zoltanalmodos-projects.vercel.app/image.png",
+    "buttonTitle": "Check this out",
+    "splashImageUrl": "https://base-nft-next-7jpz6zg9d-zoltanalmodos-projects.vercel.app/splash.png",
+    "splashBackgroundColor": "#eeccff",
+    "webhookUrl": "https://base-nft-next-7jpz6zg9d-zoltanalmodos-projects.vercel.app/api/webhook"
+  }
+}
