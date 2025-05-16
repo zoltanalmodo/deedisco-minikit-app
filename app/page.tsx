@@ -71,7 +71,7 @@ export default function Home() {
           <h1 className="text-3xl font-bold" style={{ marginBottom: "0.5rem" }}>
             deedisco - Game character generator
           </h1>
-          <p className="text-gray-600">Generate your gaming character and mint them as NFTs</p>
+          <p className="text-gray-600">Generate your 3 parts gaming characters and mint NFTs</p>
         </header>
 
         <div className="carousel-container">
