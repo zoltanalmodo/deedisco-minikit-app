@@ -53,11 +53,16 @@ export default function Home() {
   // Remove the unused context variable
   const { setFrameReady, isFrameReady } = useMiniKit();
 
-  // Call setFrameReady when the app is ready
+  // Try adding a timeout to ensure it's called early
   useEffect(() => {
+  const timer = setTimeout(() => {
     if (!isFrameReady) {
       setFrameReady();
+      console.log("Frame ready signal sent");
     }
+  }, 100); // Small timeout
+  
+  return () => clearTimeout(timer);
   }, [setFrameReady, isFrameReady]);
 
   const [selectedImages, setSelectedImages] = useState([0, 0, 0]) // Default selected index for each carousel
