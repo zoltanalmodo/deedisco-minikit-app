@@ -50,8 +50,8 @@ const carouselData = [
 ]
 
 export default function Home() {
-  // Add the useMiniKit hook
-  const { setFrameReady, isFrameReady, context } = useMiniKit();
+  // Remove the unused context variable
+  const { setFrameReady, isFrameReady } = useMiniKit();
 
   // Call setFrameReady when the app is ready
   useEffect(() => {
