@@ -69,9 +69,12 @@ export default function Home() {
       <div style={{ maxWidth: "660px", margin: "0 auto" }}>
         <header className="text-center" style={{ marginBottom: "2rem" }}>
           <h1 className="text-3xl font-bold" style={{ marginBottom: "0.5rem" }}>
-            Game on!<br />deedisco - Build your fighter in 3 parts. Mint. Flex. Dominate.
+            deedisco - Game on!<br />
+            Build Your Fighter in 3 Parts. Mint. Flex. Dominate.
           </h1>
-          <p className="text-gray-600">Each fighter is forged from three parts — head, body, base. Mix and match, evolve through play, and make it uniquely yours.</p>
+          <p className="text-gray-600">
+            Each fighter is forged from three parts — head, body, base.<br />
+            Mix and match, evolve through play, and make it uniquely yours.</p>
         </header>
 
         <div className="carousel-container">
