@@ -5,7 +5,7 @@ import ImageCarousel from "@/app/components/carousel/image-carousel"
 import MintButton from "@/app/components/carousel/mint-button"
 import { useMiniKit } from "@coinbase/onchainkit/minikit"
 
-// updated with useMiniKit frameready hook !
+// updated with useMiniKit frameready hook and direct frame ready signals!
 
 const carouselData = [
   {
@@ -50,19 +50,33 @@ const carouselData = [
 ]
 
 export default function Home() {
-  // Remove the unused context variable
   const { setFrameReady, isFrameReady } = useMiniKit();
 
-  // Try adding a timeout to ensure it's called early
   useEffect(() => {
-  const timer = setTimeout(() => {
-    if (!isFrameReady) {
-      setFrameReady();
-      console.log("Frame ready signal sent");
+    // Approach 1: Using MiniKit with timeout
+    const timer = setTimeout(() => {
+      if (!isFrameReady) {
+        setFrameReady();
+        console.log("Frame ready signal sent via MiniKit");
+      }
+    }, 100); // Small timeout
+    
+    // Approach 2: Direct frame ready signals
+    if (typeof window !== "undefined") {
+      // Log if we're in an iframe
+      const isInIframe = window !== window.parent;
+      console.log("Is in iframe:", isInIframe);
+      
+      // Send the frame-ready message directly to the parent window
+      window.parent.postMessage({ type: "frame-ready" }, "*");
+      console.log("Direct frame ready signal sent (type)");
+      
+      // Also try the Farcaster Frame SDK format
+      window.parent.postMessage({ method: "ready" }, "*");
+      console.log("Farcaster SDK ready signal sent (method)");
     }
-  }, 100); // Small timeout
   
-  return () => clearTimeout(timer);
+    return () => clearTimeout(timer);
   }, [setFrameReady, isFrameReady]);
 
   const [selectedImages, setSelectedImages] = useState([0, 0, 0]) // Default selected index for each carousel
