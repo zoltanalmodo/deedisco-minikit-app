@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import { Loader2 } from "lucide-react"
+import Image from "next/image"
 
 interface ImageData {
   id: number
@@ -36,7 +37,7 @@ export default function MintButton({ selectedImages }: MintButtonProps) {
       )
 
       setIsDialogOpen(false)
-    } catch (error) {
+    } catch (_error) {
       alert("There was an error minting your NFTs. Please try again.")
     } finally {
       setIsMinting(false)
@@ -81,7 +82,7 @@ export default function MintButton({ selectedImages }: MintButtonProps) {
                 </div>
                 <div className="radio-label">
                   <p className="radio-label-title">Warpcast Wallet</p>
-                  <p className="radio-label-description">Farcaster's native wallet</p>
+                  <p className="radio-label-description">Farcaster&apos;s native wallet</p>
                 </div>
               </div>
 
@@ -118,7 +119,15 @@ export default function MintButton({ selectedImages }: MintButtonProps) {
               <div className="selected-images-grid">
                 {selectedImages.map((image, index) => (
                   <div key={index} className="selected-image-thumbnail">
-                    <img src={image.src || "/placeholder.svg"} alt={image.alt} className="object-cover w-full h-full" />
+                    <Image 
+                      src={image.src || "/placeholder.svg"} 
+                      alt={image.alt} 
+                      className="object-cover w-full h-full"
+                      width={0}
+                      height={0}
+                      sizes="100vw"
+                      style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                    />
                   </div>
                 ))}
               </div>

@@ -2,7 +2,8 @@
 
 import type React from "react"
 import { useState, useRef, useEffect } from "react"
-import { ChevronLeft, ChevronRight } from "lucide-react"
+import { ChevronLeft, ChevronRight } from 'lucide-react'
+import Image from "next/image"
 
 interface ImageData {
   id: number
@@ -14,10 +15,9 @@ interface ImageCarouselProps {
   images: ImageData[]
   selectedIndex: number
   onSelect: (index: number) => void
-  removeBorder?: boolean
 }
 
-export default function ImageCarousel({ images, selectedIndex, onSelect, removeBorder = false }: ImageCarouselProps) {
+export default function ImageCarousel({ images, selectedIndex, onSelect }: ImageCarouselProps) {
   const [currentIndex, setCurrentIndex] = useState(selectedIndex)
   const carouselRef = useRef<HTMLDivElement>(null)
   const [isDragging, setIsDragging] = useState(false)
@@ -118,7 +118,16 @@ export default function ImageCarousel({ images, selectedIndex, onSelect, removeB
         {images.map((image, index) => (
           <div key={image.id} className="carousel-item">
             <div className={`carousel-image-container ${index === currentIndex ? "selected-image" : ""}`}>
-              <img src={image.src || "/placeholder.svg"} alt={image.alt} className="carousel-image" />
+              <Image 
+                src={image.src || "/placeholder.svg"} 
+                alt={image.alt} 
+                className="carousel-image"
+                width={0}
+                height={0}
+                sizes="100vw"
+                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                priority={index === currentIndex}
+              />
             </div>
           </div>
         ))}
