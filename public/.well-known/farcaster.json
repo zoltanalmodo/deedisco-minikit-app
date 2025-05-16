@@ -1,1 +1,18 @@
-{}
+{
+  "accountAssociation": {
+    "header": "eyJmaWQiOjEwNzY1ODMsInR5cGUiOiJjdXN0b2R5Iiwia2V5IjoiMHhhODZDYmQxOTYyMDg4QjlFODE0N0UxMjI1NzJhMzcxMjJDYTQ0NmMyIn0",
+    "payload": "eyJkb21haW4iOiJkZWVkaXNjby1taW5pa2l0LWFwcC52ZXJjZWwuYXBwIn0",
+    "signature": "MHhmNTBlZjkzZjBkYjE3MzkyYWUzMTE2M2E1NzZlOWI1NTYxMjIzNDE3NGJjNDcyYTAxMmYxYjY3MTIyYzNhMjJlNDZjNGE1YzRhYTUyZjNiYTNkYjMyNzIwZTNhY2RhNzgzMTdlZGE2NGEzOGYyN2NkNjRlMzMzMGVhYzEwODg0ZjFj"
+  },
+  "frame": {
+    "version": "1",
+    "name": "deedisco game character generator",
+    "iconUrl": "https://deedisco-minikit-app.vercel.app/public/icon.png",
+    "homeUrl": "https://deedisco-minikit-app.vercel.app",
+    "imageUrl": "https://deedisco-minikit-app.vercel.app/public/image.png",
+    "buttonTitle": "Generate your game character",
+    "splashImageUrl": "https://deedisco-minikit-app.vercel.app/public/splash.png",
+    "splashBackgroundColor": "#eeccff",
+    "webhookUrl": "https://deedisco-minikit-app.vercel.app/api/webhook"
+  }
+}
