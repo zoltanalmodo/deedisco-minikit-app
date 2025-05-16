@@ -47,7 +47,7 @@ export default function MintButton({ selectedImages }: MintButtonProps) {
   return (
     <div>
       <button className="btn btn-primary" onClick={() => setIsDialogOpen(true)}>
-        Mint your gaming character in 3 parts — as one unforgettable NFT
+        Mint your unforgettable NFT
       </button>
 
       {isDialogOpen && (
