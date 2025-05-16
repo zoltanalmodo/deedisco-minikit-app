@@ -7,10 +7,12 @@
   "frame": {
     "version": "1",
     "name": "Game NFT Character Generator",
+    "subtitle": "Generate your game characters",
+    "description": "Unique Game character generator lets you define your player and pick attributes based on head, body, legs. Train your player and fight in matches with other players!",
     "iconUrl": "https://deedisco-minikit-app.vercel.app/public/icon.png",
     "homeUrl": "https://deedisco-minikit-app.vercel.app",
     "imageUrl": "https://deedisco-minikit-app.vercel.app/public/image.png",
-    "buttonTitle": "Generate NFT game characters!",
+    "buttonTitle": "Generate NFT game characters",
     "splashImageUrl": "https://deedisco-minikit-app.vercel.app/public/splash.png",
     "splashBackgroundColor": "#eeccff",
     "webhookUrl": "https://deedisco-minikit-app.vercel.app/api/webhook"
