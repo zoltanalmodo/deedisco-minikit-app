@@ -5,8 +5,8 @@ import ImageCarousel from "@/app/components/carousel/image-carousel"
 import MintButton from "@/app/components/carousel/mint-button"
 import { useMiniKit } from "@coinbase/onchainkit/minikit"
 
-// Copy the content from your original page.tsx and adapt it to the new structure
-// Sample image data with new dimensions (660px × 286px)
+// updated with useMiniKit frameready hook !
+
 const carouselData = [
   {
     id: 1,
