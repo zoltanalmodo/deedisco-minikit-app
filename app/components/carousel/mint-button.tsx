@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { Loader2 } from "lucide-react"
+import { Loader2 } from 'lucide-react'
 import Image from "next/image"
 
 interface ImageData {
@@ -37,7 +37,7 @@ export default function MintButton({ selectedImages }: MintButtonProps) {
       )
 
       setIsDialogOpen(false)
-    } catch (_error) {
+    } catch { // Removed the _error parameter
       alert("There was an error minting your NFTs. Please try again.")
     } finally {
       setIsMinting(false)
