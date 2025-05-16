@@ -7,17 +7,16 @@
   "frame": {
     "version": "1",
     "name": "NFT Game Character Generator",
-    "subtitle": "Build Your Fighter in 3 Parts. Mint. Flex. Dominate.",
+    "subtitle": "Build Your Hero. Mint. Play.",
     "screenshotUrls": [
       "https://deedisco-minikit-app.vercel.app/screenshot_001.png",
       "https://deedisco-minikit-app.vercel.app/screenshot_002.png",
-      "https://deedisco-minikit-app.vercel.app/screenshot_003.png",
-      "https://deedisco-minikit-app.vercel.app/screenshot_004.png"
+      "https://deedisco-minikit-app.vercel.app/screenshot_003.png"
     ],
     "primaryCategory": "games",
     "tags": ["nft", "gaming", "character", "mint", "evolution"],
     "heroImageUrl": "https://deedisco-minikit-app.vercel.app/hero.png",
-    "tagline": "Mix & Mint. Play to Evolve.",
+    "tagline": "Mix. Mint. Play to Evolve.",
     "ogTitle": "Deedisco – Mix, Mint, Play",
     "ogDescription": "Build and mint a modular fighter. Combine parts, evolve through gameplay, and win your way.",
     "ogImageUrl": "https://deedisco-minikit-app.vercel.app/og.png",
