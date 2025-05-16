@@ -69,9 +69,9 @@ export default function Home() {
       <div style={{ maxWidth: "660px", margin: "0 auto" }}>
         <header className="text-center" style={{ marginBottom: "2rem" }}>
           <h1 className="text-3xl font-bold" style={{ marginBottom: "0.5rem" }}>
-            Farcaster NFT Carousel
+            deedisco = game character generator miniapp
           </h1>
-          <p className="text-gray-600">Select your favorite images and mint them as NFTs</p>
+          <p className="text-gray-600">Select parts of your gaming character and mint them as NFTs</p>
         </header>
 
         <div className="carousel-container">

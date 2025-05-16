@@ -47,7 +47,7 @@ export default function MintButton({ selectedImages }: MintButtonProps) {
   return (
     <div>
       <button className="btn btn-primary" onClick={() => setIsDialogOpen(true)}>
-        Mint Selected Images as NFTs
+        Mint Selected Parts as NFTs
       </button>
 
       {isDialogOpen && (
