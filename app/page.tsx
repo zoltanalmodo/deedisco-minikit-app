@@ -64,6 +64,8 @@ export default function Home() {
     })
   }
 
+  // Deedisco title added
+
   return (
     <main className="container" style={{ padding: "2rem 1rem" }}>
       <div style={{ maxWidth: "660px", margin: "0 auto" }}>
