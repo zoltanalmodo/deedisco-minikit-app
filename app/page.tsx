@@ -64,7 +64,7 @@ export default function Home() {
     })
   }
 
-  // Deedisco title added
+
 
   return (
     <main className="container" style={{ padding: "2rem 1rem" }}>
