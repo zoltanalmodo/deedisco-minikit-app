@@ -1,8 +1,9 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import ImageCarousel from "@/app/components/carousel/image-carousel"
 import MintButton from "@/app/components/carousel/mint-button"
+import { useMiniKit } from "@coinbase/onchainkit/minikit"
 
 // Copy the content from your original page.tsx and adapt it to the new structure
 // Sample image data with new dimensions (660px × 286px)
@@ -49,6 +50,16 @@ const carouselData = [
 ]
 
 export default function Home() {
+  // Add the useMiniKit hook
+  const { setFrameReady, isFrameReady, context } = useMiniKit();
+
+  // Call setFrameReady when the app is ready
+  useEffect(() => {
+    if (!isFrameReady) {
+      setFrameReady();
+    }
+  }, [setFrameReady, isFrameReady]);
+
   const [selectedImages, setSelectedImages] = useState([0, 0, 0]) // Default selected index for each carousel
 
   const handleImageSelect = (carouselIndex: number, imageIndex: number) => {
@@ -63,8 +74,6 @@ export default function Home() {
       return carousel.images[selectedImageIndex]
     })
   }
-
-
 
   return (
     <main className="container" style={{ padding: "2rem 1rem" }}>
