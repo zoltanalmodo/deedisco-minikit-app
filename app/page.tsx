@@ -69,12 +69,12 @@ export default function Home() {
       <div style={{ maxWidth: "660px", margin: "0 auto" }}>
         <header className="text-center" style={{ marginBottom: "2rem" }}>
           <h1 className="text-3xl font-bold" style={{ marginBottom: "0.5rem" }}>
-            deedisco - Game on!<br />
-            Build Your Fighter in 3 Parts. Mint. Flex. Dominate.
+            Deedisco - Build Your Modular Fighter!<br />
+            Combine parts, evolve through gameplay, and win your way.
           </h1>
           <p className="text-gray-600">
             Each fighter is forged from three parts — head, body, base.<br />
-            Mix and match, evolve through play, and make it uniquely yours.</p>
+            Mix and match, evolve through play, build a fighter that stands out and make it uniquely yours.</p>
         </header>
 
         <div className="carousel-container">
