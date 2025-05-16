@@ -87,7 +87,6 @@ export default function Home() {
                 images={carousel.images}
                 selectedIndex={selectedImages[index]}
                 onSelect={(imageIndex) => handleImageSelect(index, imageIndex)}
-                removeBorder={true}
               />
             </div>
           ))}
