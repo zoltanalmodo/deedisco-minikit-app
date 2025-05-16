@@ -69,9 +69,9 @@ export default function Home() {
       <div style={{ maxWidth: "660px", margin: "0 auto" }}>
         <header className="text-center" style={{ marginBottom: "2rem" }}>
           <h1 className="text-3xl font-bold" style={{ marginBottom: "0.5rem" }}>
-            deedisco - Game character generator
+            deedisco - Game Character Generator
           </h1>
-          <p className="text-gray-600">Generate your 3 parts gaming characters and mint NFTs</p>
+          <p className="text-gray-600">Game on! Build your fighter in 3 parts. Mint. Flex. Dominate.</p>
         </header>
 
         <div className="carousel-container">
