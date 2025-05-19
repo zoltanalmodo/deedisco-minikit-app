@@ -101,10 +101,9 @@ export default function Home() {
           deedisco - Game on!
         </h1>
         <h2 className="text-lg font-semibold mb-1">
-          Build Your Fighter in 3 Parts. Mint. Flex. Dominate.
+          Build Your Hero in 3 Parts - head, body, base.
         </h2>
         <p className="text-sm text-gray-600 mb-2">
-          Each fighter is forged from three parts — head, body, base.<br />
           Mix and match, evolve through play, and make it uniquely yours.
         </p>
       </header>
