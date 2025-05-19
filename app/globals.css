@@ -13,8 +13,8 @@
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
     "Helvetica Neue", sans-serif;
-  background-color: #f9f9f9;
-  color: #333;
+  background-color: #1a1a1a; /* Dark background */
+  color: #e0e0e0; /* Light text for dark background */
   line-height: 1.6;
 }
 
@@ -69,7 +69,7 @@ body {
 }
 
 .border {
-  border: 1px solid #e2e8f0;
+  border: 1px solid #333; /* Darker border for dark theme */
 }
 
 .p-4 {
@@ -93,15 +93,15 @@ body {
 }
 
 .bg-gray-50 {
-  background-color: #f9fafb;
+  background-color: #1a1a1a; /* Dark background */
 }
 
 .bg-white {
-  background-color: #ffffff;
+  background-color: #ffffff; /* Keep white for image backgrounds */
 }
 
 .text-gray-600 {
-  color: #4b5563;
+  color: #a0a0a0; /* Lighter gray for dark theme */
 }
 
 .font-bold {
@@ -140,13 +140,13 @@ body {
 }
 
 .btn-outline {
-  background-color: white;
-  border: 1px solid #e2e8f0;
-  color: #4b5563;
+  background-color: #2a2a2a; /* Darker for dark theme */
+  border: 1px solid #444; /* Darker border for dark theme */
+  color: #e0e0e0; /* Light text for dark theme */
 }
 
 .btn-outline:hover {
-  background-color: #f3f4f6;
+  background-color: #333; /* Darker hover for dark theme */
 }
 
 .btn-icon {
@@ -156,8 +156,7 @@ body {
 
 /* Carousel specific styles */
 .carousel-container {
-  border: 2px solid #e2e8f0;
-  border-radius: 0.5rem;
+  border: none; /* Remove border */
   overflow: hidden;
   max-width: 660px;
   margin: 0 auto;
@@ -180,15 +179,16 @@ body {
 
 .carousel-image-container {
   position: relative;
-  height: 286px;
+  height: 150px; /* Reduced height */
   width: 100%;
   overflow: hidden;
+  background-color: white; /* Keep white background for images */
 }
 
 .carousel-image {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain; /* Changed to contain */
 }
 
 .carousel-nav-button {
@@ -197,8 +197,8 @@ body {
   transform: translateY(-50%);
   background-color: rgba(255, 255, 255, 0.8);
   border-radius: 9999px;
-  width: 40px;
-  height: 40px;
+  width: 30px; /* Smaller buttons */
+  height: 30px; /* Smaller buttons */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -206,6 +206,7 @@ body {
   transition: opacity 0.2s;
   border: 1px solid #e2e8f0;
   cursor: pointer;
+  z-index: 10;
 }
 
 .carousel-nav-button:hover {
@@ -232,7 +233,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.7); /* Darker overlay */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -240,12 +241,13 @@ body {
 }
 
 .dialog-content {
-  background-color: white;
+  background-color: #222; /* Dark dialog */
   border-radius: 0.5rem;
   padding: 1.5rem;
   max-width: 28rem;
   width: 100%;
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
+  color: #e0e0e0; /* Light text */
 }
 
 .dialog-header {
@@ -256,10 +258,11 @@ body {
   font-size: 1.25rem;
   font-weight: 600;
   margin-bottom: 0.5rem;
+  color: #ffffff;
 }
 
 .dialog-description {
-  color: #6b7280;
+  color: #a0a0a0;
   font-size: 0.875rem;
 }
 
@@ -277,11 +280,12 @@ body {
 }
 
 .radio-item {
-  border: 2px solid #e2e8f0;
+  border: 2px solid #444; /* Darker border */
   border-radius: 0.375rem;
   padding: 1rem;
   cursor: pointer;
   transition: border-color 0.2s;
+  background-color: #2a2a2a; /* Dark background */
 }
 
 .radio-item.selected {
@@ -300,13 +304,13 @@ body {
 }
 
 .radio-icon-warpcast {
-  background-color: #f3e8ff;
-  color: #9333ea;
+  background-color: #3a2a4a; /* Darker for dark theme */
+  color: #b388ff;
 }
 
 .radio-icon-coinbase {
-  background-color: #dbeafe;
-  color: #2563eb;
+  background-color: #1a365d; /* Darker for dark theme */
+  color: #60a5fa;
 }
 
 .radio-label {
@@ -316,11 +320,12 @@ body {
 .radio-label-title {
   font-weight: 500;
   margin-bottom: 0.25rem;
+  color: #e0e0e0;
 }
 
 .radio-label-description {
   font-size: 0.75rem;
-  color: #6b7280;
+  color: #a0a0a0;
 }
 
 .selected-images-grid {
@@ -334,7 +339,8 @@ body {
   height: 5rem;
   border-radius: 0.375rem;
   overflow: hidden;
-  border: 1px solid #e2e8f0;
+  border: 1px solid #444; /* Darker border */
+  background-color: white; /* Keep white for images */
 }
 
 .sr-only {
@@ -371,23 +377,51 @@ body {
 .w-4 {
   width: 1rem;
 }
+
 /* Add to globals.css */
 html, body {
   max-width: 100%;
   overflow-x: hidden;
+  background-color: #1a1a1a !important; /* Force dark background */
+  color: #e0e0e0 !important; /* Force light text */
 }
 
 /* For Farcaster mini-app specific styling */
 @media (max-width: 600px) {
   h1 {
     font-size: 1.25rem !important;
+    color: #e0e0e0 !important;
   }
   
   h2 {
     font-size: 1rem !important;
+    color: #e0e0e0 !important;
   }
   
   p {
     font-size: 0.875rem !important;
+    color: #a0a0a0 !important;
   }
+}
+
+/* Force dark background in all contexts */
+.bg-background {
+  background-color: #1a1a1a !important;
+}
+
+/* Specific styles for carousel borders */
+.carousel-container > div {
+  border-top: 1px solid #444;
+  margin-bottom: -1px !important;
+}
+
+.carousel-container > div:first-child {
+  border-top: none;
+}
+
+/* Remove rounded corners from carousels */
+.carousel-image-container, 
+.carousel-container,
+.carousel-container > div {
+  border-radius: 0 !important;
 }

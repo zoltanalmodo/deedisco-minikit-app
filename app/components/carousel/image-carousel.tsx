@@ -1,4 +1,3 @@
-// app/components/carousel/image-carousel.tsx
 "use client"
 
 import { useState } from "react"
@@ -37,8 +36,8 @@ export default function ImageCarousel({
 
   return (
     <div className="relative w-full">
-      <div className="overflow-hidden rounded-lg">
-        <div className="relative h-[150px] w-full">
+      <div className="overflow-hidden">
+        <div className="relative h-[150px] w-full bg-white">
           {images.map((image, index) => (
             <div
               key={image.id}
@@ -61,7 +60,7 @@ export default function ImageCarousel({
         className="absolute left-1 top-1/2 -translate-y-1/2 bg-white/80 rounded-full p-1 shadow-md"
         aria-label="Previous image"
       >
-        <ChevronLeft className="h-5 w-5" />
+        <ChevronLeft className="h-5 w-5 text-black" />
       </button>
 
       <button
@@ -69,7 +68,7 @@ export default function ImageCarousel({
         className="absolute right-1 top-1/2 -translate-y-1/2 bg-white/80 rounded-full p-1 shadow-md"
         aria-label="Next image"
       >
-        <ChevronRight className="h-5 w-5" />
+        <ChevronRight className="h-5 w-5 text-black" />
       </button>
     </div>
   )

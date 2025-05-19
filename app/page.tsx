@@ -95,15 +95,15 @@ export default function Home() {
   }
 
   return (
-    <main className="flex flex-col items-center w-full max-w-md mx-auto px-4 py-2" style={{ maxHeight: '100vh', overflowY: 'auto' }}>
+    <main className="flex flex-col items-center w-full max-w-md mx-auto px-4 py-2 bg-[#1a1a1a] text-white" style={{ maxHeight: '100vh', overflowY: 'auto' }}>
       <header className="text-center mb-2">
-        <h1 className="text-xl font-bold mb-1">
+        <h1 className="text-xl font-bold mb-1 text-gray-300">
           deedisco - Game on!
         </h1>
-        <h2 className="text-lg font-semibold mb-1">
+        <h2 className="text-lg font-semibold mb-1 text-gray-300">
           Build Your Hero in 3 Parts - head, body, base.
         </h2>
-        <p className="text-sm text-gray-600 mb-2">
+        <p className="text-sm text-gray-400 mb-2">
           Mix and match, evolve through play, and make it uniquely yours.
         </p>
       </header>
@@ -112,9 +112,9 @@ export default function Home() {
         {carouselData.map((carousel, index) => (
           <div
             key={carousel.id}
-            className="mb-1 border-t border-gray-200 pt-1"
+            className={`mb-0 ${index > 0 ? 'border-t border-gray-700' : ''}`}
             style={{
-              borderTop: index > 0 ? "1px solid #e2e8f0" : "none",
+              marginBottom: "-1px", // Make images touch each other
             }}
           >
             <ImageCarousel

@@ -55,7 +55,7 @@ export default function RootLayout({
         <meta property="og:description" content={process.env.NEXT_PUBLIC_APP_OG_DESCRIPTION || description} />
         <meta property="og:image" content={process.env.NEXT_PUBLIC_APP_OG_IMAGE || heroImage || ""} />
       </head>
-      <body className="bg-background">
+      <body className="bg-[#1a1a1a]">
         <Providers>{children}</Providers>
       </body>
     </html>
