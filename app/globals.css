@@ -371,3 +371,23 @@ body {
 .w-4 {
   width: 1rem;
 }
+/* Add to globals.css */
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* For Farcaster mini-app specific styling */
+@media (max-width: 600px) {
+  h1 {
+    font-size: 1.25rem !important;
+  }
+  
+  h2 {
+    font-size: 1rem !important;
+  }
+  
+  p {
+    font-size: 0.875rem !important;
+  }
+}

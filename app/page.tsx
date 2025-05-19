@@ -95,39 +95,40 @@ export default function Home() {
   }
 
   return (
-    <main className="container" style={{ padding: "2rem 1rem" }}>
-      <div style={{ maxWidth: "660px", margin: "0 auto" }}>
-        <header className="text-center" style={{ marginBottom: "2rem" }}>
-          <h1 className="text-3xl font-bold" style={{ marginBottom: "0.5rem" }}>
-            Deedisco - Build Your Modular Fighter!<br />
-            Combine parts, evolve through gameplay, and win your way.
-          </h1>
-          <p className="text-gray-600">
-            Each fighter is forged from three parts — head, body, base.<br />
-            Mix and match, evolve through play, build a fighter that stands out and make it uniquely yours.</p>
-        </header>
+    <main className="flex flex-col items-center w-full max-w-md mx-auto px-4 py-2" style={{ maxHeight: '100vh', overflowY: 'auto' }}>
+      <header className="text-center mb-2">
+        <h1 className="text-xl font-bold mb-1">
+          deedisco - Game on!
+        </h1>
+        <h2 className="text-lg font-semibold mb-1">
+          Build Your Fighter in 3 Parts. Mint. Flex. Dominate.
+        </h2>
+        <p className="text-sm text-gray-600 mb-2">
+          Each fighter is forged from three parts — head, body, base.<br />
+          Mix and match, evolve through play, and make it uniquely yours.
+        </p>
+      </header>
 
-        <div className="carousel-container">
-          {carouselData.map((carousel, index) => (
-            <div
-              key={carousel.id}
-              style={{
-                borderTop: index > 0 ? "1px solid #e2e8f0" : "none",
-                marginBottom: "-4px", // Remove any potential gap between carousels
-              }}
-            >
-              <ImageCarousel
-                images={carousel.images}
-                selectedIndex={selectedImages[index]}
-                onSelect={(imageIndex) => handleImageSelect(index, imageIndex)}
-              />
-            </div>
-          ))}
-        </div>
+      <div className="carousel-container w-full">
+        {carouselData.map((carousel, index) => (
+          <div
+            key={carousel.id}
+            className="mb-1 border-t border-gray-200 pt-1"
+            style={{
+              borderTop: index > 0 ? "1px solid #e2e8f0" : "none",
+            }}
+          >
+            <ImageCarousel
+              images={carousel.images}
+              selectedIndex={selectedImages[index]}
+              onSelect={(imageIndex) => handleImageSelect(index, imageIndex)}
+            />
+          </div>
+        ))}
+      </div>
 
-        <div style={{ display: "flex", justifyContent: "center", marginTop: "2rem" }}>
-          <MintButton selectedImages={getSelectedImagesData()} />
-        </div>
+      <div className="mt-4 mb-4 flex justify-center w-full">
+        <MintButton selectedImages={getSelectedImagesData()} />
       </div>
     </main>
   )
