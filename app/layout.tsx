@@ -51,9 +51,8 @@ export default function RootLayout({
         {tagline && <meta property="fc:frame:tagline" content={tagline} />}
         
         {/* Open Graph tags for better sharing */}
-        <meta property="og:image" content={process.env.NEXT_PUBLIC_APP_OG_IMAGE || heroImage || "https://deedisco-minikit-app.vercel.app/hero.png"} />
         <meta property="og:description" content={process.env.NEXT_PUBLIC_APP_OG_DESCRIPTION || description} />
-        <meta property="og:image" content={process.env.NEXT_PUBLIC_APP_OG_IMAGE || heroImage || ""} />
+        <meta property="og:image" content={process.env.NEXT_PUBLIC_APP_OG_IMAGE || heroImage || "https://deedisco-minikit-app.vercel.app/og.png"} />
       </head>
       <body className="bg-[#1a1a1a]">
         <Providers>{children}</Providers>
