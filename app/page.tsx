@@ -6,6 +6,7 @@ import MintButton from "@/app/components/carousel/mint-button"
 import { useMiniKit } from "@coinbase/onchainkit/minikit"
 
 // updated with useMiniKit frameready hook and direct frame ready signals!
+// back to working OK BUT embed valid is X
 
 const carouselData = [
   {
