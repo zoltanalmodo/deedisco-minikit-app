@@ -34,16 +34,16 @@ export default function RootLayout({
 
         {/* ✅ Warpcast Frame Meta Tags */}
         <meta property="fc:frame" content="vNext" />
-        <meta property="fc:frame:image" content={heroImage || ""} />
+        <meta property="fc:frame:image" content={heroImage || "https://deedisco-minikit-app.vercel.app/hero.png"} />
         <meta property="fc:frame:button:1" content={`Launch ${title}`} />
         <meta property="fc:frame:button:1:action" content="post" />
         
         {/* Mini-app specific configuration */}
-        <meta property="fc:frame:post_url" content={URL || ""} />
+        <meta property="fc:frame:post_url" content={URL || "https://deedisco-minikit-app.vercel.app/api/notify"} />
         <meta property="fc:frame:button:1:target" content="launch_frame" />
-        <meta property="fc:frame:button:1:launch_frame:url" content={URL || ""} />
+        <meta property="fc:frame:button:1:launch_frame:url" content={URL || "https://deedisco-minikit-app.vercel.app"} />
         <meta property="fc:frame:button:1:launch_frame:name" content={title} />
-        <meta property="fc:frame:button:1:launch_frame:splash_image" content={splashImage || ""} />
+        <meta property="fc:frame:button:1:launch_frame:splash_image" content={splashImage || "https://deedisco-minikit-app.vercel.app/hero.png"} />
         <meta property="fc:frame:button:1:launch_frame:background" content={splashBackground || "#FFFFFF"} />
         
         {/* Optional metadata */}
@@ -51,7 +51,7 @@ export default function RootLayout({
         {tagline && <meta property="fc:frame:tagline" content={tagline} />}
         
         {/* Open Graph tags for better sharing */}
-        <meta property="og:title" content={process.env.NEXT_PUBLIC_APP_OG_TITLE || title} />
+        <meta property="og:image" content={process.env.NEXT_PUBLIC_APP_OG_IMAGE || heroImage || "https://deedisco-minikit-app.vercel.app/hero.png"} />
         <meta property="og:description" content={process.env.NEXT_PUBLIC_APP_OG_DESCRIPTION || description} />
         <meta property="og:image" content={process.env.NEXT_PUBLIC_APP_OG_IMAGE || heroImage || ""} />
       </head>
