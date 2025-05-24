@@ -49,6 +49,7 @@ export default function ImageCarousel({
                 src={image.src || "/placeholder.svg"}
                 alt={image.alt}
                 className="max-h-full max-w-full object-contain"
+                loading="lazy"
               />
             </div>
           ))}
