@@ -29,7 +29,7 @@ export default function RootLayout({
     version: "next",
     imageUrl: heroImage,
     button: {
-      title: "Start",
+      title: "Mint Your NFT",
       action: {
         type: "launch_frame",
         name: title,
