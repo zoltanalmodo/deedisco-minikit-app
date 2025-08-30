@@ -20,7 +20,8 @@ export default function MintButton({ selectedImages }: MintButtonProps) {
       onClick={handleMint}
       className="bg-purple-600 hover:bg-purple-700 text-white font-medium py-2 px-6 rounded-md transition-colors"
     >
-      Mint Your Unforgettable NFT
+      Generate Hero
+      {/* Mint Your Unforgettable NFT */}
     </button>
   )
 }
