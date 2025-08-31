@@ -1,4 +1,5 @@
 // app/components/carousel/mint-button.tsx
+// before update
 "use client"
 
 interface MintButtonProps {
