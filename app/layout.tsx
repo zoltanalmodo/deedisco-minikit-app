@@ -4,6 +4,7 @@ import "@coinbase/onchainkit/styles.css"
 import type { Viewport } from "next"
 import "./globals.css"
 import { Providers } from "./providers"
+import { Toaster } from "./components/ui/toaster" // 👈 add this
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -24,7 +25,6 @@ export default function RootLayout({
   const splashImage = process.env.NEXT_PUBLIC_APP_SPLASH_IMAGE || "https://deedisco-minikit-app.vercel.app/splash.png"
   const splashBackground = process.env.NEXT_PUBLIC_SPLASH_BACKGROUND_COLOR || "#1a1a1a"
 
-  // Create the Mini App embed JSON
   const frameEmbed = {
     version: "next",
     imageUrl: heroImage,
@@ -49,7 +49,7 @@ export default function RootLayout({
         {/* ✅ CORRECT Mini App Embed Meta Tag */}
         <meta name="fc:frame" content={JSON.stringify(frameEmbed)} />
 
-        {/* Open Graph tags for better sharing */}
+        {/* Open Graph tags */}
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
         <meta property="og:image" content={process.env.NEXT_PUBLIC_APP_OG_IMAGE || heroImage} />
@@ -64,6 +64,7 @@ export default function RootLayout({
       </head>
       <body className="bg-[#1a1a1a]">
         <Providers>{children}</Providers>
+        <Toaster /> {/* 👈 mount once so useToast() toasts are visible */}
       </body>
     </html>
   )

@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import ImageCarousel from "@/app/components/carousel/image-carousel"
-import MintButton from "@/app/components/ui/mint-button"
+import MintButton from "@/app/components/carousel/mint-button"
 import { useMiniKit } from "@coinbase/onchainkit/minikit"
 
 // updated with useMiniKit frameready hook and direct frame ready signals!
