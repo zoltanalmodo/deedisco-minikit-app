@@ -99,13 +99,13 @@ export default function Home() {
     <main className="flex flex-col items-center w-full max-w-md mx-auto px-4 py-2 bg-[#1a1a1a] text-white" style={{ maxHeight: '100vh', overflowY: 'auto' }}>
       <header className="text-center mb-2">
         <h1 className="text-xl font-bold mb-1 text-gray-300">
-          deedisco - Game on!
+          deedisco - Mint Parts. Build Your Collections!
         </h1>
         <h2 className="text-lg font-semibold mb-1 text-gray-300">
-          Build Your Hero in 3 Parts - head, body, base.
+          Mint 3 Random Parts - top, mid, bot.
         </h2>
         <p className="text-sm text-gray-400 mb-2">
-          Mix and match, evolve through play, and make it uniquely yours.
+          Collect pieces, assemble originals, trade, complete or create new sets and earn license fees when they are reused.
         </p>
       </header>
 

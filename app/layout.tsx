@@ -18,8 +18,8 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
-  const title = process.env.NEXT_PUBLIC_ONCHAINKIT_PROJECT_NAME || "NFT Game Character Generator"
-  const description = process.env.NEXT_PUBLIC_APP_DESCRIPTION || "Build Your Hero. Mint. Play."
+  const title = process.env.NEXT_PUBLIC_ONCHAINKIT_PROJECT_NAME || "Random Character Generator"
+  const description = process.env.NEXT_PUBLIC_APP_DESCRIPTION || "Mint Your Random Parts. Collect. Make collections. Exchange. Get License Fees"
   const URL = process.env.NEXT_PUBLIC_URL || "https://deedisco-minikit-app.vercel.app"
   const heroImage = process.env.NEXT_PUBLIC_APP_HERO_IMAGE || "https://deedisco-minikit-app.vercel.app/hero.png"
   const splashImage = process.env.NEXT_PUBLIC_APP_SPLASH_IMAGE || "https://deedisco-minikit-app.vercel.app/splash.png"

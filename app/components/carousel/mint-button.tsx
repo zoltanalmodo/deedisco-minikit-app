@@ -56,7 +56,7 @@ export default function MintButton({ selectedImages }: MintButtonProps) {
           type="button"
           className="bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-6 rounded-lg shadow-lg transition-colors"
         >
-          Mint Your Unforgettable NFT
+        “Buy a pack of 3 random parts"
         </button>
       </Dialog.Trigger>
 
@@ -91,7 +91,7 @@ export default function MintButton({ selectedImages }: MintButtonProps) {
 
           {/* Selected images */}
           <div className="mt-6 space-y-2">
-            <h3 className="text-sm font-medium">Selected Images</h3>
+            <h3 className="text-sm font-medium">the 3 random parts</h3>
             <div className="grid grid-cols-3 gap-2">
               {selectedImages.map((img, i) => (
                 <div
