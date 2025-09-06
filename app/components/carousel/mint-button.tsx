@@ -1,11 +1,13 @@
 // app/components/carousel/mint-button.tsx
+// before it mints random images ...
+
 "use client";
 
 import { useState } from "react";
 import * as Dialog from "@radix-ui/react-dialog";
 import Image from "next/image";
 import { Loader2 } from "lucide-react";
-import { useToast } from "../../../lib/hooks/use-toast"; // adjust if your path differs
+import { useToast } from "../../../lib/hooks/use-toast"; 
 
 type Wallet = "warpcast" | "coinbase";
 
