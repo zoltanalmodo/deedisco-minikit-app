@@ -1,44 +1,75 @@
 // app/components/carousel/mint-button.tsx
-// before it mints random images ...
-
+// after random selection implemented
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import * as Dialog from "@radix-ui/react-dialog";
 import Image from "next/image";
 import { Loader2 } from "lucide-react";
-import { useToast } from "../../../lib/hooks/use-toast"; 
+import { useToast } from "../../../lib/hooks/use-toast";
 
 type Wallet = "warpcast" | "coinbase";
+type Img = { id: number; src: string; alt: string };
 
 interface MintButtonProps {
-  selectedImages: Array<{
-    id: number;
-    src: string;
-    alt: string;
-  }>;
+  /** Pools to draw from: exactly 1 random from each */
+  randomFrom: {
+    top: Img[];
+    mid: Img[];
+    bot: Img[];
+  };
+  /** Your mint hook (upload, metadata, contract call, etc.) */
+  onMint?: (params: { pack: Img[]; wallet: Wallet }) => Promise<void> | void;
 }
 
-export default function MintButton({ selectedImages }: MintButtonProps) {
+export default function MintButton({ randomFrom, onMint }: MintButtonProps) {
   const { toast } = useToast();
   const [open, setOpen] = useState(false);
   const [isMinting, setIsMinting] = useState(false);
   const [walletType, setWalletType] = useState<Wallet>("warpcast");
+  const [pack, setPack] = useState<Img[]>([]); // the locked random set for this modal open
+
+  // ---- crypto-safe random helpers (no user shuffle UI) ----
+  function cryptoIndex(n: number) {
+    if (typeof window !== "undefined" && window.crypto?.getRandomValues) {
+      const buf = new Uint32Array(1);
+      const max = Math.floor(0xffffffff / n) * n; // rejection sampling, avoid modulo bias
+      while (true) {
+        window.crypto.getRandomValues(buf);
+        const r = buf[0];
+        if (r < max) return r % n;
+      }
+    }
+    return Math.floor(Math.random() * n); // fallback
+  }
+  function pickOne<T>(arr: T[]): T {
+    if (!arr || arr.length === 0) throw new Error("Empty image pool");
+    return arr[cryptoIndex(arr.length)];
+  }
+
+  // Roll exactly once per modal open; no way for user to change it
+  useEffect(() => {
+    if (open) {
+      const rolled = [pickOne(randomFrom.top), pickOne(randomFrom.mid), pickOne(randomFrom.bot)];
+      setPack(rolled);
+    } else {
+      setPack([]); // clear when closed
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [open]);
 
   const handleMint = async () => {
     setIsMinting(true);
     try {
-      // TODO: connect wallet, upload assets, create metadata, contract call...
-      await new Promise((r) => setTimeout(r, 1500));
+      await onMint?.({ pack, wallet: walletType });
+      if (!onMint) await new Promise((r) => setTimeout(r, 1000)); // demo delay
 
       toast({
         title: "NFTs Minted Successfully!",
-        description: `${selectedImages.length} NFTs have been minted to your ${
+        description: `${pack.length} NFTs have been minted to your ${
           walletType === "warpcast" ? "Warpcast" : "Coinbase"
         } wallet.`,
-        variant: "default",
       });
-
       setOpen(false);
     } catch {
       toast({
@@ -58,7 +89,7 @@ export default function MintButton({ selectedImages }: MintButtonProps) {
           type="button"
           className="bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-6 rounded-lg shadow-lg transition-colors"
         >
-        “Buy a pack of 3 random parts"
+          Buy a pack of 3 random parts
         </button>
       </Dialog.Trigger>
 
@@ -67,8 +98,7 @@ export default function MintButton({ selectedImages }: MintButtonProps) {
         <Dialog.Content className="fixed left-1/2 top-1/2 z-[101] w-[92vw] max-w-md -translate-x-1/2 -translate-y-1/2 rounded-2xl border border-white/10 bg-neutral-900 p-6 text-white shadow-2xl focus:outline-none data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=open]:zoom-in-95 data-[state=closed]:zoom-out-95">
           <Dialog.Title className="text-lg font-semibold">Mint NFTs</Dialog.Title>
           <Dialog.Description className="mt-1 text-sm text-neutral-300">
-            You are about to mint {selectedImages.length} image{selectedImages.length === 1 ? "" : "s"} as NFTs.
-            Choose your wallet to continue.
+            You are about to mint 3 randomly selected parts. Choose your wallet to continue.
           </Dialog.Description>
 
           {/* Wallet selector */}
@@ -91,23 +121,27 @@ export default function MintButton({ selectedImages }: MintButtonProps) {
             />
           </div>
 
-          {/* Selected images */}
+          {/* Locked random selection (no shuffle button) */}
           <div className="mt-6 space-y-2">
             <h3 className="text-sm font-medium">the 3 random parts</h3>
             <div className="grid grid-cols-3 gap-2">
-              {selectedImages.map((img, i) => (
+              {(pack.length ? pack : new Array(3).fill(null)).map((img, i) => (
                 <div
-                  key={`${img.id}-${i}`}
-                  className="relative h-20 overflow-hidden rounded-md border border-white/10"
+                  key={i}
+                  className={`relative h-20 overflow-hidden rounded-md border border-white/10 ${
+                    img ? "" : "animate-pulse bg-white/10"
+                  }`}
                 >
-                  <Image
-                    src={img.src || "/placeholder.svg"}
-                    alt={img.alt}
-                    fill
-                    className="object-cover"
-                    sizes="80px"
-                    priority={i < 3}
-                  />
+                  {img && (
+                    <Image
+                      src={img.src || "/placeholder.svg"}
+                      alt={img.alt}
+                      fill
+                      className="object-cover"
+                      sizes="80px"
+                      priority={i < 3}
+                    />
+                  )}
                 </div>
               ))}
             </div>
@@ -127,7 +161,7 @@ export default function MintButton({ selectedImages }: MintButtonProps) {
             <button
               type="button"
               onClick={handleMint}
-              disabled={isMinting}
+              disabled={isMinting || pack.length !== 3}
               className="inline-flex items-center justify-center rounded-md bg-purple-600 px-4 py-2 text-sm font-semibold text-white shadow hover:bg-purple-700 disabled:cursor-not-allowed disabled:opacity-60"
             >
               {isMinting ? (
@@ -146,7 +180,6 @@ export default function MintButton({ selectedImages }: MintButtonProps) {
   );
 }
 
-/** Small wallet card with peer-checked styles but no external UI deps */
 function WalletCard(props: {
   id: string;
   label: string;
@@ -168,35 +201,11 @@ function WalletCard(props: {
       <input id={id} type="radio" name="wallet" className="sr-only" checked={selected} readOnly />
       <div className="mb-2 flex h-9 w-9 items-center justify-center rounded-full bg-white/10">
         {icon === "warpcast" ? (
-          // Simple shield-ish icon
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="18"
-            height="18"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className="text-purple-400"
-          >
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-purple-400">
             <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10" />
           </svg>
         ) : (
-          // Simple coin-ish icon
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="18"
-            height="18"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className="text-blue-400"
-          >
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-blue-400">
             <circle cx="12" cy="12" r="9" />
             <path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8" />
             <path d="M12 18V6" />
