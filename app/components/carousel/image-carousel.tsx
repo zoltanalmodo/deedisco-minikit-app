@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 
 interface Image {
@@ -13,25 +13,38 @@ interface ImageCarouselProps {
   images: Image[]
   selectedIndex: number
   onSelect: (index: number) => void
+  onNavigationClick?: () => void
+  showOverlay?: boolean
+  resetTrigger?: number // This will change when reset is clicked, triggering useEffect
 }
 
 export default function ImageCarousel({
   images,
   selectedIndex,
   onSelect,
+  onNavigationClick,
+  showOverlay = false,
+  resetTrigger = 0,
 }: ImageCarouselProps) {
   const [currentIndex, setCurrentIndex] = useState(selectedIndex)
+
+  // Reset to index 0 when resetTrigger changes
+  useEffect(() => {
+    setCurrentIndex(0)
+  }, [resetTrigger])
 
   const handlePrevious = () => {
     const newIndex = (currentIndex - 1 + images.length) % images.length
     setCurrentIndex(newIndex)
     onSelect(newIndex)
+    onNavigationClick?.()
   }
 
   const handleNext = () => {
     const newIndex = (currentIndex + 1) % images.length
     setCurrentIndex(newIndex)
     onSelect(newIndex)
+    onNavigationClick?.()
   }
 
   return (
@@ -53,6 +66,15 @@ export default function ImageCarousel({
               />
             </div>
           ))}
+          
+          {/* Overlay that becomes semi-transparent and blurred when showOverlay is true */}
+          <div 
+            className={`absolute top-0 left-0 w-full h-full transition-all duration-300 ${
+              showOverlay 
+                ? "bg-white/75 backdrop-blur-lg" 
+                : "bg-transparent backdrop-blur-none"
+            }`}
+          />
         </div>
       </div>
 

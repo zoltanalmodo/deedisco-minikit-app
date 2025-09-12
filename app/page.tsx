@@ -81,11 +81,40 @@ export default function Home() {
   // Carousels still have their own selection state for browsing,
   // but MintButton will ignore it and mint a random top/mid/bot.
   const [selectedImages, setSelectedImages] = useState([0, 0, 0])
+  
+  // Overlay state - becomes true after 6 navigation button clicks
+  const [showOverlay, setShowOverlay] = useState(false)
+  const [clickCount, setClickCount] = useState(0)
+  const [resetTrigger, setResetTrigger] = useState(0)
+  const CLICK_THRESHOLD = 6
 
   const handleImageSelect = (carouselIndex: number, imageIndex: number) => {
     const next = [...selectedImages]
     next[carouselIndex] = imageIndex
     setSelectedImages(next)
+  }
+
+  // Handle navigation button clicks - show overlay after 6 clicks
+  const handleNavigationClick = () => {
+    // Don't increment if we've already reached the threshold
+    if (clickCount >= CLICK_THRESHOLD) {
+      return
+    }
+    
+    const newClickCount = clickCount + 1
+    setClickCount(newClickCount)
+    
+    if (newClickCount >= CLICK_THRESHOLD) {
+      setShowOverlay(true)
+    }
+  }
+
+  // Reset to original state - clear overlay and reset all carousels to index 0
+  const handleReset = () => {
+    setShowOverlay(false)
+    setClickCount(0)
+    setSelectedImages([0, 0, 0])
+    setResetTrigger(prev => prev + 1) // Trigger carousel reset
   }
 
   return (
@@ -103,6 +132,36 @@ export default function Home() {
         <p className="text-sm text-gray-400 mb-2">
           Collect pieces, assemble originals, trade, complete or create new sets and earn license fees when they are reused.
         </p>
+        
+        {/* Click progress indicator - always visible to maintain layout */}
+        <div className="text-xs text-blue-400 mb-2 flex items-center justify-center gap-2">
+          <span>Explore the collection! clicks: </span>
+          <div className="flex gap-1">
+            {Array.from({ length: CLICK_THRESHOLD }, (_, i) => (
+              <div
+                key={i}
+                className={`w-2 h-2 rounded-full ${
+                  i >= (CLICK_THRESHOLD - clickCount) ? "bg-gray-600" : "bg-blue-400"
+                }`}
+              />
+            ))}
+          </div>
+        </div>
+        
+        {/* Notification space - always reserved to maintain layout */}
+        <div className="mb-2 min-h-[24px] flex items-center justify-center">
+          {showOverlay && (
+            <div className="text-xs text-yellow-400 animate-pulse flex items-center justify-center gap-2">
+              <span>🔒 Images are now hidden - navigate to explore parts!</span>
+              <button
+                onClick={handleReset}
+                className="text-xs bg-yellow-400/20 text-yellow-300 px-2 py-1 rounded hover:bg-yellow-400/30 transition-colors"
+              >
+                Reset
+              </button>
+            </div>
+          )}
+        </div>
       </header>
 
       <div className="carousel-container w-full">
@@ -116,6 +175,9 @@ export default function Home() {
               images={carousel.images}
               selectedIndex={selectedImages[index]}
               onSelect={(imageIndex) => handleImageSelect(index, imageIndex)}
+              onNavigationClick={handleNavigationClick}
+              showOverlay={showOverlay}
+              resetTrigger={resetTrigger}
             />
           </div>
         ))}

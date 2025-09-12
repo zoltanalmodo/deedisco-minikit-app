@@ -89,7 +89,7 @@ export default function MintButton({ randomFrom, onMint }: MintButtonProps) {
           type="button"
           className="bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-6 rounded-lg shadow-lg transition-colors"
         >
-          Buy a pack of 3 random parts
+          Buy a pack of random parts
         </button>
       </Dialog.Trigger>
 
