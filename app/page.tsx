@@ -135,7 +135,7 @@ export default function Home() {
         
         {/* Click progress indicator - always visible to maintain layout */}
         <div className="text-xs text-blue-400 mb-1 flex items-center justify-center gap-2">
-          <span>Explore the collection! clicks: </span>
+          <span>Explore the collection! </span>
           <div className="flex gap-1">
             {Array.from({ length: CLICK_THRESHOLD }, (_, i) => (
               <div
