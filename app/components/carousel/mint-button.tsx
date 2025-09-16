@@ -87,7 +87,7 @@ export default function MintButton({ randomFrom, onMint }: MintButtonProps) {
       <Dialog.Trigger asChild>
         <button
           type="button"
-          className="bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-6 rounded-lg shadow-lg transition-colors"
+          className="bg-purple-600 hover:bg-purple-700 text-white font-semibold py-2 px-4 sm:py-3 sm:px-6 rounded-lg shadow-lg transition-colors text-sm sm:text-base"
         >
           Buy a pack of random parts
         </button>

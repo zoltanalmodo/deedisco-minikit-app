@@ -119,22 +119,22 @@ export default function Home() {
 
   return (
     <main
-      className="flex flex-col items-center w-full max-w-md mx-auto px-4 py-2 bg-[#1a1a1a] text-white"
-      style={{ maxHeight: "100vh", overflowY: "auto" }}
+      className="flex flex-col items-center w-full max-w-md mx-auto px-2 py-1 bg-[#1a1a1a] text-white"
+      style={{ minHeight: "100vh", overflowY: "auto" }}
     >
-      <header className="text-center mb-2">
-        <h1 className="text-xl font-bold mb-1 text-gray-300">
+      <header className="text-center mb-1">
+        <h1 className="text-lg sm:text-xl font-bold mb-1 text-gray-300">
           deedisco - Mint Parts. Build Your Collections!
         </h1>
-        <h2 className="text-lg font-semibold mb-1 text-gray-300">
+        <h2 className="text-base sm:text-lg font-semibold mb-1 text-gray-300">
           Mint 3 Random Parts - top, mid, bot.
         </h2>
-        <p className="text-sm text-gray-400 mb-2">
+        <p className="text-xs sm:text-sm text-gray-400 mb-1">
           Collect pieces, assemble originals, trade, complete or create new sets and earn license fees when they are reused.
         </p>
         
         {/* Click progress indicator - always visible to maintain layout */}
-        <div className="text-xs text-blue-400 mb-2 flex items-center justify-center gap-2">
+        <div className="text-xs text-blue-400 mb-1 flex items-center justify-center gap-2">
           <span>Explore the collection! clicks: </span>
           <div className="flex gap-1">
             {Array.from({ length: CLICK_THRESHOLD }, (_, i) => (
@@ -149,7 +149,7 @@ export default function Home() {
         </div>
         
         {/* Notification space - always reserved to maintain layout */}
-        <div className="mb-2 min-h-[24px] flex items-center justify-center">
+        <div className="mb-1 min-h-[20px] flex items-center justify-center">
           {showOverlay && (
             <div className="text-xs text-yellow-400 animate-pulse flex items-center justify-center gap-2">
               <span>🔒 Images are now hidden - navigate to explore parts!</span>
@@ -183,7 +183,7 @@ export default function Home() {
         ))}
       </div>
 
-      <div className="mt-4 mb-4 flex justify-center w-full">
+      <div className="mt-2 mb-2 flex justify-center w-full">
         <MintButton
           randomFrom={{
             top: carouselData[0].images,
