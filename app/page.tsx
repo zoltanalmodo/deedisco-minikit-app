@@ -164,12 +164,16 @@ export default function Home() {
         </div>
       </header>
 
-      <div className="carousel-container w-full">
+      <div className="carousel-container w-full m-0 p-0">
         {carouselData.map((carousel, index) => (
           <div
             key={carousel.id}
-            className={`mb-0 ${index > 0 ? "border-t border-gray-700" : ""}`}
-            style={{ marginBottom: "-1px" }}
+            className="m-0 p-0"
+            style={{ 
+              margin: "0px", 
+              padding: "0px",
+              marginTop: index > 0 ? "-1px" : "0px"
+            }}
           >
             <ImageCarousel
               images={carousel.images}
