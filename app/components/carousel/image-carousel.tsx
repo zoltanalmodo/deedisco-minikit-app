@@ -50,7 +50,7 @@ export default function ImageCarousel({
   return (
     <div className="relative w-full">
       <div className="overflow-hidden">
-        <div className="relative h-[120px] sm:h-[150px] w-full bg-white">
+        <div className="relative aspect-[3/2] w-full bg-white">
           {images.map((image, index) => (
             <div
               key={image.id}
