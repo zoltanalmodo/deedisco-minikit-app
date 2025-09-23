@@ -20,9 +20,13 @@ interface MintButtonProps {
   };
   /** Your mint hook (upload, metadata, contract call, etc.) */
   onMint?: (params: { pack: Img[]; wallet: Wallet }) => Promise<void> | void;
+  /** Custom button text */
+  customButtonText?: string;
+  /** Show only selected pack (hide mid/bot) */
+  showOnlySelected?: boolean;
 }
 
-export default function MintButton({ randomFrom, onMint }: MintButtonProps) {
+export default function MintButton({ randomFrom, onMint, customButtonText, showOnlySelected = false }: MintButtonProps) {
   const { toast } = useToast();
   const [open, setOpen] = useState(false);
   const [isMinting, setIsMinting] = useState(false);
@@ -89,7 +93,7 @@ export default function MintButton({ randomFrom, onMint }: MintButtonProps) {
           type="button"
           className="bg-purple-600 hover:bg-purple-700 text-white font-semibold py-2 px-4 sm:py-3 sm:px-6 rounded-lg shadow-lg transition-colors text-sm sm:text-base"
         >
-          Buy a pack of random parts
+          {customButtonText || "Buy a pack of random parts"}
         </button>
       </Dialog.Trigger>
 
@@ -123,27 +127,34 @@ export default function MintButton({ randomFrom, onMint }: MintButtonProps) {
 
           {/* Locked random selection (no shuffle button) */}
           <div className="mt-6 space-y-2">
-            <h3 className="text-sm font-medium">the 3 random parts</h3>
-            <div className="grid grid-cols-3 gap-2">
-              {(pack.length ? pack : new Array(3).fill(null)).map((img, i) => (
-                <div
-                  key={i}
-                  className={`relative h-20 overflow-hidden rounded-md border border-white/10 ${
-                    img ? "" : "animate-pulse bg-white/10"
-                  }`}
-                >
-                  {img && (
-                    <Image
-                      src={img.src || "/placeholder.svg"}
-                      alt={img.alt}
-                      fill
-                      className="object-cover"
-                      sizes="80px"
-                      priority={i < 3}
-                    />
-                  )}
-                </div>
-              ))}
+            <h3 className="text-sm font-medium">
+              {showOnlySelected ? "Selected Pack" : "the 3 random parts"}
+            </h3>
+            <div className={`grid gap-2 ${showOnlySelected ? "grid-cols-1" : "grid-cols-3"}`}>
+              {(pack.length ? pack : new Array(showOnlySelected ? 1 : 3).fill(null)).map((img, i) => {
+                // If showOnlySelected is true, only show the first item (top)
+                if (showOnlySelected && i > 0) return null;
+                
+                return (
+                  <div
+                    key={i}
+                    className={`relative h-20 overflow-hidden rounded-md border border-white/10 ${
+                      img ? "" : "animate-pulse bg-white/10"
+                    }`}
+                  >
+                    {img && (
+                      <Image
+                        src={img.src || "/placeholder.svg"}
+                        alt={img.alt}
+                        fill
+                        className="object-cover"
+                        sizes="80px"
+                        priority={i < 3}
+                      />
+                    )}
+                  </div>
+                );
+              })}
             </div>
           </div>
 

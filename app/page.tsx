@@ -7,6 +7,7 @@ import { useState, useEffect } from "react"
 import ImageCarousel from "@/app/components/carousel/image-carousel"
 import MintButton from "@/app/components/carousel/mint-button"
 import { useMiniKit } from "@coinbase/onchainkit/minikit"
+import Link from "next/link"
 
 // updated with useMiniKit frameready hook and direct frame ready signals!
 // back to working OK BUT embed valid is X
@@ -188,17 +189,14 @@ export default function Home() {
       </div>
 
       <div className="mt-2 mb-2 flex justify-center w-full">
-        <MintButton
-          randomFrom={{
-            top: carouselData[0].images,
-            mid: carouselData[1].images,
-            bot: carouselData[2].images,
-          }}
-          onMint={async ({ pack, wallet }) => {
-            // Upload assets, create metadata, and call your mint contract here.
-            console.log("Minting random pack", { pack, wallet })
-          }}
-        />
+        <Link href="/pack-selection">
+          <button
+            type="button"
+            className="bg-purple-600 hover:bg-purple-700 text-white font-semibold py-2 px-4 sm:py-3 sm:px-6 rounded-lg shadow-lg transition-colors text-sm sm:text-base"
+          >
+            Buy a pack of random parts
+          </button>
+        </Link>
       </div>
     </main>
   )
