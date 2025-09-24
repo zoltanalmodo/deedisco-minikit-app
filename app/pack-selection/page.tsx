@@ -88,9 +88,10 @@ export default function PackSelection() {
           }}
           onMint={async ({ pack, wallet }) => {
             // Handle pack purchase here
-            console.log("Purchasing pack", { 
-              selectedPack: packData[selectedPack], 
-              wallet 
+            console.log("Purchasing pack", {
+              requestedPack: pack,
+              selectedPack: packData[selectedPack],
+              wallet,
             })
           }}
           customButtonText={`Buy ${packData[selectedPack]?.name}`}

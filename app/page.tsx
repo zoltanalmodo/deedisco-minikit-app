@@ -5,7 +5,6 @@
 
 import { useState, useEffect } from "react"
 import ImageCarousel from "@/app/components/carousel/image-carousel"
-import MintButton from "@/app/components/carousel/mint-button"
 import { useMiniKit } from "@coinbase/onchainkit/minikit"
 import Link from "next/link"
 

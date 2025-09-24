@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
+import Image from "next/image"
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 
 interface Pack {
@@ -58,12 +59,16 @@ export default function PackCarousel({
                 index === currentIndex ? "opacity-100" : "opacity-0"
               }`}
             >
-              <img
-                src={pack.src || "/placeholder.svg"}
-                alt={pack.alt}
-                className="max-h-full max-w-full object-contain"
-                loading="lazy"
-              />
+              <div className="relative h-full w-full">
+                <Image
+                  src={pack.src || "/placeholder.svg"}
+                  alt={pack.alt}
+                  fill
+                  className="object-contain"
+                  loading="lazy"
+                  sizes="(max-width: 640px) 100vw, 100vw"
+                />
+              </div>
             </div>
           ))}
         </div>
