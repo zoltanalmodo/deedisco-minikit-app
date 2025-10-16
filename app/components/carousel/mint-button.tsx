@@ -7,6 +7,9 @@ import * as Dialog from "@radix-ui/react-dialog";
 import Image from "next/image";
 import { Loader2 } from "lucide-react";
 import { useToast } from "../../../lib/hooks/use-toast";
+import { useAccount, useWriteContract, useWaitForTransactionReceipt } from "wagmi";
+import { NFT_ABI } from "@/lib/contracts/nft-abi";
+import { prepareMintTransaction, generateTokenURI } from "@/lib/mint-utils";
 
 type Wallet = "warpcast" | "coinbase";
 type Img = { id: number; src: string; alt: string };
@@ -32,6 +35,13 @@ export default function MintButton({ randomFrom, onMint, customButtonText, showO
   const [isMinting, setIsMinting] = useState(false);
   const [walletType, setWalletType] = useState<Wallet>("warpcast");
   const [pack, setPack] = useState<Img[]>([]); // the locked random set for this modal open
+  
+  // Wagmi hooks for blockchain interaction
+  const { address, isConnected } = useAccount();
+  const { writeContract, data: hash, isPending, error: writeError } = useWriteContract();
+  const { isLoading: isConfirming, isSuccess: isConfirmed } = useWaitForTransactionReceipt({
+    hash,
+  });
 
   // ---- crypto-safe random helpers (no user shuffle UI) ----
   function cryptoIndex(n: number) {
@@ -62,26 +72,105 @@ export default function MintButton({ randomFrom, onMint, customButtonText, showO
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [open]);
 
-  const handleMint = async () => {
-    setIsMinting(true);
-    try {
-      await onMint?.({ pack, wallet: walletType });
-      if (!onMint) await new Promise((r) => setTimeout(r, 1000)); // demo delay
-
+  // Watch for transaction confirmation
+  useEffect(() => {
+    if (isConfirmed && hash) {
       toast({
         title: "NFTs Minted Successfully!",
-        description: `${pack.length} NFTs have been minted to your ${
-          walletType === "warpcast" ? "Warpcast" : "Coinbase"
-        } wallet.`,
+        description: `${pack.length} NFT(s) have been minted! Transaction: ${hash.slice(0, 10)}...`,
       });
       setOpen(false);
-    } catch {
+      setIsMinting(false);
+    }
+  }, [isConfirmed, hash, pack.length, toast]);
+
+  // Watch for errors
+  useEffect(() => {
+    if (writeError) {
       toast({
         title: "Minting Failed",
-        description: "There was an error minting your NFTs. Please try again.",
+        description: writeError.message || "There was an error minting your NFTs. Please try again.",
         variant: "destructive",
       });
-    } finally {
+      setIsMinting(false);
+    }
+  }, [writeError, toast]);
+
+  const handleMint = async () => {
+    setIsMinting(true);
+    
+    try {
+      // Check if wallet is connected
+      if (!isConnected || !address) {
+        toast({
+          title: "Wallet Not Connected",
+          description: "Please connect your wallet to continue.",
+          variant: "destructive",
+        });
+        setIsMinting(false);
+        return;
+      }
+
+      // Get NFT contract address from environment
+      const contractAddress = process.env.NEXT_PUBLIC_NFT_CONTRACT_ADDRESS as `0x${string}`;
+      
+      if (!contractAddress) {
+        toast({
+          title: "Configuration Error",
+          description: "NFT contract address not configured. Please set NEXT_PUBLIC_NFT_CONTRACT_ADDRESS in your .env file.",
+          variant: "destructive",
+        });
+        setIsMinting(false);
+        return;
+      }
+
+      // If custom onMint is provided, use it
+      if (onMint) {
+        await onMint({ pack, wallet: walletType });
+        toast({
+          title: "NFTs Minted Successfully!",
+          description: `${pack.length} NFTs have been minted to your ${
+            walletType === "warpcast" ? "Warpcast" : "Coinbase"
+          } wallet.`,
+        });
+        setOpen(false);
+        setIsMinting(false);
+        return;
+      }
+
+      // Otherwise, use blockchain minting
+      // For now, we'll mint the first item (you can batch mint all 3 in production)
+      const firstItem = pack[0];
+      if (!firstItem) {
+        throw new Error("No items to mint");
+      }
+
+      // Generate metadata URI for the NFT
+      const tokenURI = generateTokenURI(firstItem);
+
+      // Prepare and send mint transaction
+      const txData = prepareMintTransaction({
+        contractAddress,
+        recipientAddress: address,
+        tokenURI,
+      });
+
+      // Execute the contract write
+      writeContract({
+        address: contractAddress,
+        abi: NFT_ABI,
+        functionName: 'mint',
+        args: [address, tokenURI],
+      });
+
+      // The useEffect hooks above will handle success/error
+    } catch (error) {
+      console.error("Minting error:", error);
+      toast({
+        title: "Minting Failed",
+        description: error instanceof Error ? error.message : "There was an error minting your NFTs. Please try again.",
+        variant: "destructive",
+      });
       setIsMinting(false);
     }
   };
@@ -172,14 +261,16 @@ export default function MintButton({ randomFrom, onMint, customButtonText, showO
             <button
               type="button"
               onClick={handleMint}
-              disabled={isMinting || pack.length !== 3}
+              disabled={isMinting || isPending || isConfirming || pack.length !== 3 || !isConnected}
               className="inline-flex items-center justify-center rounded-md bg-purple-600 px-4 py-2 text-sm font-semibold text-white shadow hover:bg-purple-700 disabled:cursor-not-allowed disabled:opacity-60"
             >
-              {isMinting ? (
+              {isMinting || isPending || isConfirming ? (
                 <>
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                  Minting...
+                  {isConfirming ? "Confirming..." : "Minting..."}
                 </>
+              ) : !isConnected ? (
+                "Connect Wallet First"
               ) : (
                 "Mint NFTs"
               )}
