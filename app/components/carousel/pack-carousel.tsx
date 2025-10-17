@@ -46,7 +46,7 @@ export default function PackCarousel({
       <div className="overflow-hidden m-0 p-0" style={{ margin: "0px", padding: "0px" }}>
         {/* Single carousel with same dimensions as 3 combined carousels */}
         <div 
-          className="relative w-full bg-white m-0 p-0 h-[360px] sm:h-[450px]" 
+          className="relative w-full bg-black m-0 p-0 h-[360px] sm:h-[450px]" 
           style={{ 
             margin: "0px", 
             padding: "0px"
@@ -64,7 +64,7 @@ export default function PackCarousel({
                   src={pack.src || "/placeholder.svg"}
                   alt={pack.alt}
                   fill
-                  className="object-contain"
+                  className="object-cover"
                   loading="lazy"
                   sizes="(max-width: 640px) 100vw, 100vw"
                 />
