@@ -4,14 +4,15 @@ import { useState, useEffect } from "react"
 import { useMiniKit } from "@coinbase/onchainkit/minikit"
 import PackCarousel from "@/app/components/carousel/pack-carousel"
 import MintButton from "@/app/components/carousel/mint-button"
+import Link from "next/link"
+import { ChevronLeft } from "lucide-react"
 
-// Pack data - you can add more pack images here
+// Pack data - 4 pack options as requested
 const packData = [
-  { id: 1, src: "/pack1.jpg", alt: "Pack 1 - Basic Collection", name: "Basic Pack" },
-  { id: 2, src: "/pack2.jpg", alt: "Pack 2 - Premium Collection", name: "Premium Pack" },
-  { id: 3, src: "/pack3.jpg", alt: "Pack 3 - Rare Collection", name: "Rare Pack" },
-  { id: 4, src: "/pack4.jpg", alt: "Pack 4 - Legendary Collection", name: "Legendary Pack" },
-  { id: 5, src: "/pack5.jpg", alt: "Pack 5 - Epic Collection", name: "Epic Pack" },
+  { id: 1, src: "/pack-all-random.png", alt: "3 Parts Pack (all random)", name: "3 Parts Pack (all random)" },
+  { id: 2, src: "/pack-guaranteed-top.png", alt: "3 Parts Pack (guaranteed top)", name: "3 Parts Pack (guaranteed top)" },
+  { id: 3, src: "/pack-guaranteed-mid.png", alt: "3 Parts Pack (guaranteed mid)", name: "3 Parts Pack (guaranteed mid)" },
+  { id: 4, src: "/pack-guaranteed-bot.png", alt: "3 Parts Pack (guaranteed bot)", name: "3 Parts Pack (guaranteed bot)" },
 ]
 
 export default function PackSelection() {
@@ -48,6 +49,15 @@ export default function PackSelection() {
       style={{ minHeight: "100vh", overflowY: "auto" }}
     >
       <header className="text-center mb-1">
+        {/* Back to Main page button */}
+        <div className="w-full flex justify-start mb-2">
+          <Link href="/">
+            <button className="flex items-center text-blue-400 hover:text-blue-300 transition-colors text-sm">
+              <ChevronLeft className="h-4 w-4 mr-1" /> Back to Main
+            </button>
+          </Link>
+        </div>
+        
         <h1 className="text-lg sm:text-xl font-bold mb-1 text-gray-300">
           Choose Your Pack
         </h1>
