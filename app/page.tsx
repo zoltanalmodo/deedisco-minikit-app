@@ -152,7 +152,7 @@ export default function Home() {
         <div className="mb-1 min-h-[20px] flex items-center justify-center">
           {showOverlay && (
             <div className="text-xs text-yellow-400 animate-pulse flex items-center justify-center gap-2">
-              <span>🔒 Images are now hidden - navigate to explore parts!</span>
+              <span>🔒 Images are now hidden - (Reset button) to explore more parts!</span>
               <button
                 onClick={handleReset}
                 className="text-xs bg-yellow-400/20 text-yellow-300 px-2 py-1 rounded hover:bg-yellow-400/30 transition-colors"
