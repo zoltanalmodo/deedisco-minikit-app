@@ -120,7 +120,7 @@ export default function Home() {
 
   return (
     <main
-      className="flex flex-col items-center w-full max-w-md mx-auto px-2 py-1 bg-[#1a1a1a] text-white"
+      className="flex flex-col items-center w-full max-w-[450px] mx-auto px-2 py-1 bg-[#1a1a1a] text-white"
       style={{ minHeight: "100vh", overflowY: "auto" }}
     >
       <header className="text-center mb-1">
@@ -166,7 +166,7 @@ export default function Home() {
         </div>
       </header>
 
-      <div className="carousel-container w-[858px] h-[858px] m-0 p-0 mx-auto" style={{ maxWidth: "none", width: "858px", minWidth: "858px" }}>
+      <div className="carousel-container w-[450px] h-[450px] m-0 p-0 mx-auto">
         {carouselData.map((carousel, index) => (
           <div
             key={carousel.id}
