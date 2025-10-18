@@ -59,11 +59,8 @@ export default function PackSelection() {
 
       <header className="text-center mb-1">
         <h1 className="text-lg sm:text-xl font-bold mb-1 text-gray-300">
-          Build your collection
+          Find a pack you like and make it yours.
         </h1>
-        <p className="text-xs sm:text-sm text-gray-400 mb-1">
-          Find a pack you love and make it yours.
-        </p>
       </header>
 
       {/* Pack Carousel - Same size as 3 combined carousels */}
