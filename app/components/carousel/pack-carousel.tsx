@@ -68,7 +68,7 @@ export default function PackCarousel({
       <div className="overflow-hidden m-0 p-0" style={{ margin: "0px", padding: "0px" }}>
         {/* Single carousel with same dimensions as 3 combined carousels */}
         <div 
-          className="relative w-full bg-black m-0 p-0 h-[360px] sm:h-[450px]" 
+          className="relative w-[360px] h-[360px] sm:w-[450px] sm:h-[450px] bg-black m-0 p-0 mx-auto" 
           style={{ 
             margin: "0px", 
             padding: "0px"
