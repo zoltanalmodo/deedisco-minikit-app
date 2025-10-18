@@ -80,21 +80,21 @@ export default function ImageCarousel({
           />
         </div>
 
-      <button
-        onClick={handlePrevious}
-        className="absolute left-1 top-1/2 -translate-y-1/2 bg-white/80 rounded-full p-1 shadow-md"
-        aria-label="Previous image"
-      >
-        <ChevronLeft className="h-5 w-5 text-black" />
-      </button>
+        <button
+          onClick={handlePrevious}
+          className="absolute left-1 top-1/2 -translate-y-1/2 bg-white/80 rounded-full p-1 shadow-md"
+          aria-label="Previous image"
+        >
+          <ChevronLeft className="h-5 w-5 text-black" />
+        </button>
 
-      <button
-        onClick={handleNext}
-        className="absolute right-1 top-1/2 -translate-y-1/2 bg-white/80 rounded-full p-1 shadow-md"
-        aria-label="Next image"
-      >
-        <ChevronRight className="h-5 w-5 text-black" />
-      </button>
+        <button
+          onClick={handleNext}
+          className="absolute right-1 top-1/2 -translate-y-1/2 bg-white/80 rounded-full p-1 shadow-md"
+          aria-label="Next image"
+        >
+          <ChevronRight className="h-5 w-5 text-black" />
+        </button>
     </div>
   )
 }
