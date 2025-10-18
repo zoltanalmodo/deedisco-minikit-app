@@ -128,7 +128,7 @@ export default function Home() {
           Build Your Collection!
         </h1>
         <h2 className="text-base sm:text-lg font-semibold mb-1 text-gray-300">
-          Mint 3 Parts - top, mid, bot.
+          Mint 3 Cards - top, mid, bot.
         </h2>
         <p className="text-xs sm:text-sm text-gray-400 mb-1">
           Collect pieces, assemble originals, trade, complete or create new sets and earn license fees when they are reused.
@@ -166,7 +166,7 @@ export default function Home() {
         </div>
       </header>
 
-      <div className="carousel-container w-full m-0 p-0">
+      <div className="carousel-container w-[858px] h-[858px] m-0 p-0 mx-auto">
         {carouselData.map((carousel, index) => (
           <div
             key={carousel.id}
@@ -195,7 +195,7 @@ export default function Home() {
             type="button"
             className="bg-purple-600 hover:bg-purple-700 text-white font-semibold py-2 px-4 sm:py-3 sm:px-6 rounded-lg shadow-lg transition-colors text-sm sm:text-base"
           >
-            Buy a pack of random parts
+            Buy a 3-card pack
           </button>
         </Link>
       </div>
