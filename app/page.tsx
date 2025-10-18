@@ -120,7 +120,7 @@ export default function Home() {
 
   return (
     <main
-      className="flex flex-col items-center w-full max-w-[450px] mx-auto px-2 py-1 bg-[#1a1a1a] text-white"
+      className="flex flex-col items-center w-full max-w-[450px] mx-auto px-0 py-1 bg-[#1a1a1a] text-white"
       style={{ minHeight: "100vh", overflowY: "auto" }}
     >
       <header className="text-center mb-1">
