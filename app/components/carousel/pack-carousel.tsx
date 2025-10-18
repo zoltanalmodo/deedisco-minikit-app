@@ -36,7 +36,11 @@ export default function PackCarousel({
     packs.forEach((pack, index) => {
       const img = new Image()
       img.onload = () => {
-        setLoadedImages(prev => new Set([...prev, index]))
+        setLoadedImages(prev => {
+          const newSet = new Set(prev)
+          newSet.add(index)
+          return newSet
+        })
       }
       img.src = pack.src
     })
