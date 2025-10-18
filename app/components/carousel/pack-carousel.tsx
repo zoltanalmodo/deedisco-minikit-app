@@ -24,6 +24,13 @@ export default function PackCarousel({
 }: PackCarouselProps) {
   const [currentIndex, setCurrentIndex] = useState(selectedIndex)
 
+  // Debug logging
+  useEffect(() => {
+    console.log('PackCarousel packs:', packs);
+    console.log('Current index:', currentIndex);
+    console.log('Current pack:', packs[currentIndex]);
+  }, [packs, currentIndex])
+
   // Reset to selected index when it changes
   useEffect(() => {
     setCurrentIndex(selectedIndex)
@@ -61,12 +68,18 @@ export default function PackCarousel({
             >
               <div className="relative h-full w-full">
                 <Image
-                  src={pack.src || "/placeholder.svg"}
+                  src={pack.src}
                   alt={pack.alt}
                   fill
                   className="object-cover"
                   loading="lazy"
                   sizes="(max-width: 640px) 100vw, 100vw"
+                  onError={(e) => {
+                    console.error('Image failed to load:', pack.src, e);
+                  }}
+                  onLoad={() => {
+                    console.log('Image loaded successfully:', pack.src);
+                  }}
                 />
               </div>
             </div>
