@@ -11,36 +11,36 @@ const packData = [
     id: "all-random",
     name: "3 Cards Pack (all random)",
     images: [
-      { id: "random1", src: "/pack-all-random.png", alt: "All Random Pack" },
-      { id: "random2", src: "/pack-all-random.png", alt: "All Random Pack" },
-      { id: "random3", src: "/pack-all-random.png", alt: "All Random Pack" }
+      { id: 1, src: "/pack-all-random.png", alt: "All Random Pack" },
+      { id: 2, src: "/pack-all-random.png", alt: "All Random Pack" },
+      { id: 3, src: "/pack-all-random.png", alt: "All Random Pack" }
     ]
   },
   {
     id: "guaranteed-top",
     name: "3 Cards Pack (guaranteed top)",
     images: [
-      { id: "top1", src: "/pack-guaranteed-top.png", alt: "Guaranteed Top Pack" },
-      { id: "top2", src: "/pack-guaranteed-top.png", alt: "Guaranteed Top Pack" },
-      { id: "top3", src: "/pack-guaranteed-top.png", alt: "Guaranteed Top Pack" }
+      { id: 4, src: "/pack-guaranteed-top.png", alt: "Guaranteed Top Pack" },
+      { id: 5, src: "/pack-guaranteed-top.png", alt: "Guaranteed Top Pack" },
+      { id: 6, src: "/pack-guaranteed-top.png", alt: "Guaranteed Top Pack" }
     ]
   },
   {
     id: "guaranteed-mid",
     name: "3 Cards Pack (guaranteed mid)",
     images: [
-      { id: "mid1", src: "/pack-guaranteed-mid.png", alt: "Guaranteed Mid Pack" },
-      { id: "mid2", src: "/pack-guaranteed-mid.png", alt: "Guaranteed Mid Pack" },
-      { id: "mid3", src: "/pack-guaranteed-mid.png", alt: "Guaranteed Mid Pack" }
+      { id: 7, src: "/pack-guaranteed-mid.png", alt: "Guaranteed Mid Pack" },
+      { id: 8, src: "/pack-guaranteed-mid.png", alt: "Guaranteed Mid Pack" },
+      { id: 9, src: "/pack-guaranteed-mid.png", alt: "Guaranteed Mid Pack" }
     ]
   },
   {
     id: "guaranteed-bot",
     name: "3 Cards Pack (guaranteed bot)",
     images: [
-      { id: "bot1", src: "/pack-guaranteed-bot.png", alt: "Guaranteed Bot Pack" },
-      { id: "bot2", src: "/pack-guaranteed-bot.png", alt: "Guaranteed Bot Pack" },
-      { id: "bot3", src: "/pack-guaranteed-bot.png", alt: "Guaranteed Bot Pack" }
+      { id: 10, src: "/pack-guaranteed-bot.png", alt: "Guaranteed Bot Pack" },
+      { id: 11, src: "/pack-guaranteed-bot.png", alt: "Guaranteed Bot Pack" },
+      { id: 12, src: "/pack-guaranteed-bot.png", alt: "Guaranteed Bot Pack" }
     ]
   }
 ]
