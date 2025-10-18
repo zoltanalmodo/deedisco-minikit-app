@@ -9,10 +9,10 @@ import { ChevronLeft } from "lucide-react"
 
 // Pack data - 4 pack options as requested
 const packData = [
-  { id: 1, src: "/pack-all-random.png", alt: "3 Parts Pack (all random)", name: "3 Parts Pack (all random)" },
-  { id: 2, src: "/pack-guaranteed-top.png", alt: "3 Parts Pack (guaranteed top)", name: "3 Parts Pack (guaranteed top)" },
-  { id: 3, src: "/pack-guaranteed-mid.png", alt: "3 Parts Pack (guaranteed mid)", name: "3 Parts Pack (guaranteed mid)" },
-  { id: 4, src: "/pack-guaranteed-bot.png", alt: "3 Parts Pack (guaranteed bot)", name: "3 Parts Pack (guaranteed bot)" },
+  { id: 1, src: "/pack-all-random.png", alt: "3 Cards Pack (all random)", name: "3 Cards Pack (all random)" },
+  { id: 2, src: "/pack-guaranteed-top.png", alt: "3 Cards Pack (guaranteed top)", name: "3 Cards Pack (guaranteed top)" },
+  { id: 3, src: "/pack-guaranteed-mid.png", alt: "3 Cards Pack (guaranteed mid)", name: "3 Cards Pack (guaranteed mid)" },
+  { id: 4, src: "/pack-guaranteed-bot.png", alt: "3 Cards Pack (guaranteed bot)", name: "3 Cards Pack (guaranteed bot)" },
 ]
 
 export default function PackSelection() {
@@ -47,15 +47,15 @@ export default function PackSelection() {
   const getPackDescription = (packIndex: number) => {
     switch (packIndex) {
       case 0: // all random pack
-        return "all 3 parts are random"
+        return "all 3 cards are random"
       case 1: // guaranteed top pack
-        return "one guaranteed top, two random parts"
+        return "one guaranteed top card, two random cards"
       case 2: // guaranteed mid pack
-        return "one guaranteed mid, two random parts"
+        return "one guaranteed mid card, two random cards"
       case 3: // guaranteed bot pack
-        return "one guaranteed bot, two random parts"
+        return "one guaranteed bot card, two random cards"
       default:
-        return "all 3 parts are random"
+        return "all 3 cards are random"
     }
   }
 
