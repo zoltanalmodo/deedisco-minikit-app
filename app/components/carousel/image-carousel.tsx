@@ -17,6 +17,7 @@ interface ImageCarouselProps {
   onNavigationClick?: () => void
   showOverlay?: boolean
   resetTrigger?: number // This will change when reset is clicked, triggering useEffect
+  fullHeight?: boolean // New prop for full height mode
 }
 
 export default function ImageCarousel({
@@ -26,6 +27,7 @@ export default function ImageCarousel({
   onNavigationClick,
   showOverlay = false,
   resetTrigger = 0,
+  fullHeight = false,
 }: ImageCarouselProps) {
   const [currentIndex, setCurrentIndex] = useState(selectedIndex)
 
@@ -49,7 +51,7 @@ export default function ImageCarousel({
   }
 
   return (
-    <div className="relative h-[120px] sm:h-[150px] w-full bg-white m-0 p-0" style={{ margin: "0px", padding: "0px", border: "none", outline: "none" }}>
+    <div className={`relative w-full bg-white m-0 p-0 ${fullHeight ? 'h-[360px] sm:h-[450px]' : 'h-[120px] sm:h-[150px]'}`} style={{ margin: "0px", padding: "0px", border: "none", outline: "none" }}>
       {images.map((image, index) => (
         <div
           key={image.id}
