@@ -59,10 +59,10 @@ export default function PackSelection() {
 
       <header className="text-center mb-1">
         <h1 className="text-lg sm:text-xl font-bold mb-1 text-gray-300">
-          Choose Your Pack
+          Build your collection
         </h1>
         <p className="text-xs sm:text-sm text-gray-400 mb-1">
-          Discover our pack collections and choose the one you want.
+          Find a pack you love and make it yours.
         </p>
       </header>
 
