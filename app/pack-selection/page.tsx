@@ -43,6 +43,22 @@ export default function PackSelection() {
     setSelectedPack(packIndex)
   }
 
+  // Get description text based on selected pack
+  const getPackDescription = (packIndex: number) => {
+    switch (packIndex) {
+      case 0: // all random pack
+        return "all random parts"
+      case 1: // guaranteed top pack
+        return "one guaranteed top, two random parts"
+      case 2: // guaranteed mid pack
+        return "one guaranteed mid, two random parts"
+      case 3: // guaranteed bot pack
+        return "one guaranteed bot, two random parts"
+      default:
+        return "all random parts"
+    }
+  }
+
   return (
     <main
       className="flex flex-col items-center w-full max-w-md mx-auto px-2 py-1 bg-[#1a1a1a] text-white"
@@ -72,6 +88,13 @@ export default function PackSelection() {
         />
       </div>
 
+
+      {/* Pack Description */}
+      <div className="text-center mb-3">
+        <p className="text-sm text-gray-300 font-medium">
+          {getPackDescription(selectedPack)}
+        </p>
+      </div>
 
       {/* Buy Button - Links to existing wallet popup */}
       <div className="flex justify-center w-full">
