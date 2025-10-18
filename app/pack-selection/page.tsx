@@ -61,11 +61,8 @@ export default function PackSelection() {
         <h1 className="text-lg sm:text-xl font-bold mb-1 text-gray-300">
           Choose Your Pack
         </h1>
-        <h2 className="text-base sm:text-lg font-semibold mb-1 text-gray-300">
-          Select a pack to purchase
-        </h2>
         <p className="text-xs sm:text-sm text-gray-400 mb-1">
-          Browse through different pack collections and choose the one you want to buy.
+          Discover our pack collections and choose the one you want.
         </p>
       </header>
 
@@ -83,9 +80,6 @@ export default function PackSelection() {
         <h3 className="text-lg font-semibold text-gray-300 mb-1">
           {packData[selectedPack]?.name}
         </h3>
-        <p className="text-sm text-gray-400">
-          {packData[selectedPack]?.alt}
-        </p>
       </div>
 
       {/* Buy Button - Links to existing wallet popup */}
