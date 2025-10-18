@@ -124,7 +124,7 @@ export default function Home() {
     >
       <header className="text-center mb-1">
         <h1 className="text-lg sm:text-xl font-bold mb-1 text-gray-300">
-          deedisco - Mint Parts. Build Your Collections!
+          deedisco - Mint Parts. Build Your Collection!
         </h1>
         <h2 className="text-base sm:text-lg font-semibold mb-1 text-gray-300">
           Mint 3 Random Parts - top, mid, bot.
