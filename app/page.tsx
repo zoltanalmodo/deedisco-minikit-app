@@ -124,10 +124,10 @@ export default function Home() {
     >
       <header className="text-center mb-1">
         <h1 className="text-lg sm:text-xl font-bold mb-1 text-gray-300">
-          deedisco - Mint Parts. Build Your Collection!
+          Build Your Collection!
         </h1>
         <h2 className="text-base sm:text-lg font-semibold mb-1 text-gray-300">
-          Mint 3 Random Parts - top, mid, bot.
+          Mint 3 Parts - top, mid, bot.
         </h2>
         <p className="text-xs sm:text-sm text-gray-400 mb-1">
           Collect pieces, assemble originals, trade, complete or create new sets and earn license fees when they are reused.
