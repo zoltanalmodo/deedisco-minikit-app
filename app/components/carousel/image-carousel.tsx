@@ -62,7 +62,7 @@ export default function ImageCarousel({
               src={image.src || "/placeholder.svg"}
               alt={image.alt}
               fill
-              className="object-contain"
+              className="object-cover"
               loading="lazy"
               sizes="(max-width: 640px) 100vw, 100vw"
             />
