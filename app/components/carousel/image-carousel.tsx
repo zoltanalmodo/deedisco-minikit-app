@@ -49,7 +49,7 @@ export default function ImageCarousel({
   }
 
   return (
-    <div className="relative h-[286px] w-full bg-white m-0 p-0" style={{ margin: "0px", padding: "0px" }}>
+    <div className="relative h-[120px] sm:h-[150px] w-full bg-white m-0 p-0" style={{ margin: "0px", padding: "0px" }}>
       {images.map((image, index) => (
         <div
           key={image.id}
