@@ -47,7 +47,7 @@ export default function PackSelection() {
   const getPackDescription = (packIndex: number) => {
     switch (packIndex) {
       case 0: // all random pack
-        return "all random parts"
+        return "all 3 parts are random"
       case 1: // guaranteed top pack
         return "one guaranteed top, two random parts"
       case 2: // guaranteed mid pack
@@ -55,7 +55,7 @@ export default function PackSelection() {
       case 3: // guaranteed bot pack
         return "one guaranteed bot, two random parts"
       default:
-        return "all random parts"
+        return "all 3 parts are random"
     }
   }
 
