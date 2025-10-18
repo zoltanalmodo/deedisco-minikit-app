@@ -48,16 +48,16 @@ export default function PackSelection() {
       className="flex flex-col items-center w-full max-w-md mx-auto px-2 py-1 bg-[#1a1a1a] text-white"
       style={{ minHeight: "100vh", overflowY: "auto" }}
     >
+      {/* Back to Main page button - aligned with carousel on desktop */}
+      <div className="w-full flex justify-start mb-2 sm:justify-start">
+        <Link href="/">
+          <button className="flex items-center text-blue-400 hover:text-blue-300 transition-colors text-sm">
+            <ChevronLeft className="h-4 w-4 mr-1" /> Back to Main
+          </button>
+        </Link>
+      </div>
+
       <header className="text-center mb-1">
-        {/* Back to Main page button */}
-        <div className="w-full flex justify-start mb-2">
-          <Link href="/">
-            <button className="flex items-center text-blue-400 hover:text-blue-300 transition-colors text-sm">
-              <ChevronLeft className="h-4 w-4 mr-1" /> Back to Main
-            </button>
-          </Link>
-        </div>
-        
         <h1 className="text-lg sm:text-xl font-bold mb-1 text-gray-300">
           Choose Your Pack
         </h1>
@@ -75,12 +75,6 @@ export default function PackSelection() {
         />
       </div>
 
-      {/* Pack Info */}
-      <div className="text-center mb-4">
-        <h3 className="text-lg font-semibold text-gray-300 mb-1">
-          {packData[selectedPack]?.name}
-        </h3>
-      </div>
 
       {/* Buy Button - Links to existing wallet popup */}
       <div className="flex justify-center w-full">
