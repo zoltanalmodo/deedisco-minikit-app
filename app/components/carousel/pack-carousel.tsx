@@ -22,6 +22,7 @@ export default function PackCarousel({
   onSelect,
 }: PackCarouselProps) {
   const [currentIndex, setCurrentIndex] = useState(selectedIndex)
+  const [loadedImages, setLoadedImages] = useState<Set<number>>(new Set())
 
   // Debug logging
   useEffect(() => {
@@ -29,6 +30,17 @@ export default function PackCarousel({
     console.log('Current index:', currentIndex);
     console.log('Current pack:', packs[currentIndex]);
   }, [packs, currentIndex])
+
+  // Preload all images
+  useEffect(() => {
+    packs.forEach((pack, index) => {
+      const img = new Image()
+      img.onload = () => {
+        setLoadedImages(prev => new Set([...prev, index]))
+      }
+      img.src = pack.src
+    })
+  }, [packs])
 
   // Reset to selected index when it changes
   useEffect(() => {
@@ -66,18 +78,20 @@ export default function PackCarousel({
               }`}
             >
               <div className="relative h-full w-full">
-                <img
-                  src={pack.src}
-                  alt={pack.alt}
-                  className="w-full h-full object-cover"
-                  loading="lazy"
-                  onError={(e) => {
-                    console.error('Image failed to load:', pack.src, e);
-                  }}
-                  onLoad={() => {
-                    console.log('Image loaded successfully:', pack.src);
-                  }}
-                />
+                {loadedImages.has(index) ? (
+                  <img
+                    src={pack.src}
+                    alt={pack.alt}
+                    className="w-full h-full object-cover"
+                    onError={(e) => {
+                      console.error('Image failed to load:', pack.src, e);
+                    }}
+                  />
+                ) : (
+                  <div className="w-full h-full bg-gray-800 flex items-center justify-center">
+                    <div className="text-gray-400 text-sm">Loading...</div>
+                  </div>
+                )}
               </div>
             </div>
           ))}
