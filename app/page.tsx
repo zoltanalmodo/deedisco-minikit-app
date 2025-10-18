@@ -166,7 +166,7 @@ export default function Home() {
         </div>
       </header>
 
-      <div className="carousel-container w-[450px] h-[450px] m-0 p-0 mx-auto">
+      <div className="carousel-container w-[450px] h-[450px] m-0 p-0 mx-auto" style={{ maxWidth: "none" }}>
         {carouselData.map((carousel, index) => (
           <div
             key={carousel.id}
