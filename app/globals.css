@@ -116,7 +116,7 @@ header p,
 /* Progress indicator text - Inter Semi-Bold Blue */
 .progress-indicator,
 .progress-indicator span {
-  color: #2563eb !important;
+  color: #121314 !important;
   font-family: 'Inter', sans-serif !important;
   font-weight: 600 !important;
 }
@@ -124,7 +124,7 @@ header p,
 /* Notification text - Inter Semi-Bold Yellow */
 .notification-text,
 .notification-text span {
-  color: #fbbf24 !important;
+  color: #DA9573 !important;
   font-family: 'Inter', sans-serif !important;
   font-weight: 600 !important;
 }
@@ -132,7 +132,7 @@ header p,
 /* Reset button - Inter Semi-Bold Yellow */
 .reset-button {
   background-color: rgba(251, 191, 36, 0.2) !important;
-  color: #fbbf24 !important;
+  color: #DA9573 !important;
   font-family: 'Inter', sans-serif !important;
   font-weight: 600 !important;
 }
