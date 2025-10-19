@@ -91,10 +91,13 @@ export default function MintButton({ randomFrom, onMint, customButtonText, showO
       <Dialog.Trigger asChild>
         <button
           type="button"
-          className="text-white font-semibold py-2 px-4 sm:py-3 sm:px-6 rounded-lg shadow-lg transition-colors text-sm sm:text-base"
-          style={{ backgroundColor: '#2563eb' }}
-          onMouseEnter={(e) => (e.target as HTMLButtonElement).style.backgroundColor = '#1d4ed8'}
-          onMouseLeave={(e) => (e.target as HTMLButtonElement).style.backgroundColor = '#2563eb'}
+          className="text-white font-semibold py-2 px-4 sm:py-3 sm:px-6 shadow-lg transition-colors text-sm sm:text-base"
+          style={{ 
+            backgroundColor: '#131312',
+            borderRadius: '50px' // Capsule shape - half the height
+          }}
+          onMouseEnter={(e) => (e.target as HTMLButtonElement).style.backgroundColor = '#0a0a0a'}
+          onMouseLeave={(e) => (e.target as HTMLButtonElement).style.backgroundColor = '#131312'}
         >
           {customButtonText || "Buy a pack of random parts"}
         </button>
@@ -176,10 +179,13 @@ export default function MintButton({ randomFrom, onMint, customButtonText, showO
               type="button"
               onClick={handleMint}
               disabled={isMinting || pack.length !== 3}
-              className="inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-semibold text-white shadow disabled:cursor-not-allowed disabled:opacity-60"
-              style={{ backgroundColor: '#2563eb' }}
-              onMouseEnter={(e) => (e.target as HTMLButtonElement).style.backgroundColor = '#1d4ed8'}
-              onMouseLeave={(e) => (e.target as HTMLButtonElement).style.backgroundColor = '#2563eb'}
+              className="inline-flex items-center justify-center px-4 py-2 text-sm font-semibold text-white shadow disabled:cursor-not-allowed disabled:opacity-60"
+              style={{ 
+                backgroundColor: '#131312',
+                borderRadius: '50px' // Capsule shape - half the height
+              }}
+              onMouseEnter={(e) => (e.target as HTMLButtonElement).style.backgroundColor = '#0a0a0a'}
+              onMouseLeave={(e) => (e.target as HTMLButtonElement).style.backgroundColor = '#131312'}
             >
               {isMinting ? (
                 <>

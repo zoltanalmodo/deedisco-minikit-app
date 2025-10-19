@@ -136,13 +136,13 @@ export default function Home() {
       }}
     >
       <header className="text-center mb-1">
-        <h1 className="text-lg sm:text-xl font-bold mb-1 text-gray-300">
+        <h1 className="text-lg sm:text-xl font-bold mb-1" style={{ color: '#131312' }}>
           Build Your Collection!
         </h1>
-        <h2 className="text-base sm:text-lg font-semibold mb-1 text-gray-300">
+        <h2 className="text-base sm:text-lg font-semibold mb-1" style={{ color: '#131312' }}>
           Mint 3 Cards - top, mid, bot.
         </h2>
-        <p className="text-xs sm:text-sm text-gray-400 mb-1">
+        <p className="text-xs sm:text-sm mb-1" style={{ color: '#131312' }}>
           Collect, trade, complete originals or create new sets and earn license fees when they are reused.
         </p>
         
@@ -205,10 +205,13 @@ export default function Home() {
         <Link href="/pack-selection">
           <button
             type="button"
-            className="text-white font-semibold py-2 px-4 sm:py-3 sm:px-6 rounded-lg shadow-lg transition-colors text-sm sm:text-base"
-            style={{ backgroundColor: '#2563eb' }}
-            onMouseEnter={(e) => (e.target as HTMLButtonElement).style.backgroundColor = '#1d4ed8'}
-            onMouseLeave={(e) => (e.target as HTMLButtonElement).style.backgroundColor = '#2563eb'}
+            className="text-white font-semibold py-2 px-4 sm:py-3 sm:px-6 shadow-lg transition-colors text-sm sm:text-base"
+            style={{ 
+              backgroundColor: '#131312',
+              borderRadius: '50px' // Capsule shape - half the height
+            }}
+            onMouseEnter={(e) => (e.target as HTMLButtonElement).style.backgroundColor = '#0a0a0a'}
+            onMouseLeave={(e) => (e.target as HTMLButtonElement).style.backgroundColor = '#131312'}
           >
             Buy a 3-card pack
           </button>

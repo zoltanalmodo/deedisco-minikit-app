@@ -74,7 +74,7 @@ export default function PackSelection() {
       </div>
 
       <header className="text-center mb-1 pt-1 pb-1">
-        <h1 className="text-lg sm:text-xl font-bold mb-1 text-gray-300">
+        <h1 className="text-lg sm:text-xl font-bold mb-1" style={{ color: '#131312' }}>
           Pick a pack and make it yours.
         </h1>
       </header>
@@ -91,7 +91,7 @@ export default function PackSelection() {
 
       {/* Pack Description */}
       <div className="text-center mb-3">
-        <p className="text-sm text-gray-300 font-medium">
+        <p className="text-sm font-medium" style={{ color: '#131312' }}>
           {getPackDescription(selectedPack)}
         </p>
       </div>
