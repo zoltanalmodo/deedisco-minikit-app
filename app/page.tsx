@@ -136,13 +136,13 @@ export default function Home() {
       }}
     >
       <header className="text-center mb-1">
-        <h1 className="text-lg sm:text-xl font-bold mb-1" style={{ color: '#131312' }}>
+        <h1 className="text-lg sm:text-xl font-bold mb-1" style={{ color: '#121213' }}>
           Build Your Collection!
         </h1>
-        <h2 className="text-base sm:text-lg font-semibold mb-1" style={{ color: '#131312' }}>
+        <h2 className="text-base sm:text-lg font-semibold mb-1" style={{ color: '#121213' }}>
           Mint 3 Cards - top, mid, bot.
         </h2>
-        <p className="text-xs sm:text-sm mb-1" style={{ color: '#131312' }}>
+        <p className="text-xs sm:text-sm mb-1" style={{ color: '#121213' }}>
           Collect, trade, complete originals or create new sets and earn license fees when they are reused.
         </p>
         

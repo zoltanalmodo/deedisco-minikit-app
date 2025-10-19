@@ -64,17 +64,8 @@ export default function PackSelection() {
       className="flex flex-col items-center w-full max-w-md mx-auto px-2 py-1 bg-white text-black"
       style={{ minHeight: "100vh", overflowY: "auto" }}
     >
-      {/* Back to Main page button - aligned with carousel on desktop */}
-      <div className="w-full flex justify-start mb-2 sm:justify-start">
-        <Link href="/">
-          <button className="flex items-center text-blue-600 hover:text-blue-500 transition-colors text-sm">
-            <ChevronLeft className="h-4 w-4 mr-1" /> Back to Main
-          </button>
-        </Link>
-      </div>
-
       <header className="text-center mb-1 pt-1 pb-1">
-        <h1 className="text-lg sm:text-xl font-bold mb-1" style={{ color: '#131312' }}>
+        <h1 className="text-lg sm:text-xl font-bold mb-1" style={{ color: '#121213' }}>
           Pick a pack and make it yours.
         </h1>
       </header>
@@ -91,7 +82,7 @@ export default function PackSelection() {
 
       {/* Pack Description */}
       <div className="text-center mb-3">
-        <p className="text-sm font-medium" style={{ color: '#131312' }}>
+        <p className="text-sm font-medium" style={{ color: '#121213' }}>
           {getPackDescription(selectedPack)}
         </p>
       </div>
@@ -115,6 +106,15 @@ export default function PackSelection() {
           customButtonText={`Buy ${packData[selectedPack]?.name}`}
           showOnlySelected={true}
         />
+      </div>
+
+      {/* Back to Main page button - centered under buy button */}
+      <div className="flex justify-center w-full mt-4">
+        <Link href="/">
+          <button className="flex items-center text-blue-600 hover:text-blue-500 transition-colors text-sm">
+            <ChevronLeft className="h-4 w-4 mr-1" /> Back to Main
+          </button>
+        </Link>
       </div>
     </main>
   )
