@@ -136,7 +136,7 @@ export default function Home() {
       }}
     >
       <header className="text-center mb-1">
-        <h1 className="text-lg sm:text-xl font-bold mb-1" style={{ color: '#121314 !important', fontFamily: 'Fraunces', fontWeight: 900 }}>
+        <h1 className="text-lg sm:text-xl font-bold mb-1" style={{ color: '#131212 !important', fontFamily: 'Fraunces', fontWeight: 900 }}>
           Build Your Collection!
         </h1>
         <h2 className="text-base sm:text-lg font-semibold mb-1" style={{ color: '#121314 !important' }}>

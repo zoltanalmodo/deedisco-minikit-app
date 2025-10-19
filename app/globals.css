@@ -77,14 +77,17 @@ html {
 
 /* Force text color on mobile devices */
 @media (max-width: 768px) {
-  h1, h2, p {
+  h1 {
+    color: #131212 !important;
+  }
+  h2, p {
     color: #121314 !important;
   }
 }
 
 /* Force H1 color specifically on all devices */
 h1 {
-  color: #121314 !important;
+  color: #131212 !important;
 }
 
 /* Fraunces Black for all H1 elements */
