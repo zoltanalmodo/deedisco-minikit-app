@@ -139,7 +139,7 @@ export default function Home() {
         <h1 className="text-2xl sm:text-2xl font-bold mb-1">
           Build Your Collection!
         </h1>
-        <h2 className="text-sm sm:text-base font-semibold mb-1">
+        <h2 className="text-xs sm:text-sm font-semibold mb-1">
           Mint 3 Cards - top, mid, bot.
         </h2>
       </header>
