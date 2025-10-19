@@ -77,21 +77,19 @@ html {
 
 /* Force text color on mobile devices */
 @media (max-width: 768px) {
-  h1 {
-    color: #131212 !important;
-  }
   h2, p {
     color: #121314 !important;
   }
 }
 
-/* Force H1 color specifically on all devices */
-h1 {
+/* SINGLE SOURCE OF TRUTH FOR ALL H1 ELEMENTS - MAXIMUM SPECIFICITY */
+h1,
+body h1,
+main h1,
+div h1,
+header h1,
+* h1 {
   color: #131212 !important;
-}
-
-/* Fraunces Black for all H1 elements */
-h1 {
   font-family: 'Fraunces', serif !important;
   font-weight: 900 !important;
 }
