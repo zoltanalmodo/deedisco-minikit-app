@@ -166,7 +166,7 @@ export default function Home() {
         </div>
       </header>
 
-      {/* Carousel container - testing deployment */}
+      {/* Carousel container - testing deployment after revert */}
       <div className="carousel-container w-[360px] h-[360px] sm:w-[450px] sm:h-[450px] m-0 p-0 mx-auto">
         {carouselData.map((carousel, index) => (
           <div
