@@ -200,16 +200,6 @@ export default function Home() {
         </Link>
       </div>
 
-      <div className="mt-2 mb-2 flex justify-center w-full">
-        <Link href="/pack-selection-new">
-          <button
-            type="button"
-            className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 sm:py-3 sm:px-6 rounded-lg shadow-lg transition-colors text-sm sm:text-base"
-          >
-            Test New Pack Selection
-          </button>
-        </Link>
-      </div>
     </main>
   )
 }
