@@ -185,11 +185,11 @@ export default function Home() {
       {/* Notification space */}
       <div className="mb-1 min-h-[20px] flex items-center justify-center">
         {showOverlay && (
-          <div className="text-xs animate-pulse flex items-center justify-center gap-2 notification-text">
+          <div className="text-sm animate-pulse flex items-center justify-center gap-2 notification-text">
             <span>🔒 Images are now hidden - </span>
             <button
               onClick={handleReset}
-              className="text-xs px-2 py-1 rounded transition-colors reset-button"
+              className="text-sm px-2 py-1 rounded transition-colors reset-button"
             >
               Reset
             </button>
