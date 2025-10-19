@@ -139,7 +139,7 @@ export default function Home() {
         <h1 className="text-2xl sm:text-2xl font-bold mb-1">
           Build Your Collection!
         </h1>
-        <h2 className="text-base sm:text-lg font-semibold mb-1">
+        <h2 className="text-sm sm:text-base font-semibold mb-1">
           Mint 3 Cards - top, mid, bot.
         </h2>
       </header>
@@ -168,25 +168,26 @@ export default function Home() {
       </div>
 
       {/* Progress indicator and notification moved below carousel */}
-      <div className="text-xs mb-1 flex items-center justify-center gap-2 progress-indicator">
-        <span>Explore the collection! </span>
-        <div className="flex gap-1">
-          {Array.from({ length: CLICK_THRESHOLD }, (_, i) => (
-            <div
-              key={i}
-              className={`w-2 h-2 rounded-full ${
-                i >= (CLICK_THRESHOLD - clickCount) ? "bg-gray-300" : "bg-blue-400"
-              }`}
-            />
-          ))}
-        </div>
-      </div>
-      
-      {/* Notification space */}
       <div className="mb-1 min-h-[20px] flex items-center justify-center">
-        {showOverlay && (
+        {clickCount < CLICK_THRESHOLD ? (
+          /* Show progress indicator when clicks < 6 */
+          <div className="text-xs flex items-center justify-center gap-2 progress-indicator">
+            <span>Explore the collection! </span>
+            <div className="flex gap-1">
+              {Array.from({ length: CLICK_THRESHOLD }, (_, i) => (
+                <div
+                  key={i}
+                  className={`w-2 h-2 rounded-full ${
+                    i >= (CLICK_THRESHOLD - clickCount) ? "bg-gray-300" : "bg-blue-400"
+                  }`}
+                />
+              ))}
+            </div>
+          </div>
+        ) : (
+          /* Show notification when clicks >= 6 */
           <div className="text-sm animate-pulse flex items-center justify-center gap-2 notification-text">
-            <span>🔒 Images are now hidden - </span>
+            <span>🔒 Cards are hidden - </span>
             <button
               onClick={handleReset}
               className="text-sm px-2 py-1 rounded transition-colors reset-button"
