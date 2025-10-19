@@ -120,7 +120,7 @@ export default function PackSelectionNewPage() {
       </div>
 
       {/* Pack Description */}
-      <div className="text-center mb-3">
+      <div className="text-center mb-3 mt-4">
         <p className="text-sm text-gray-300 font-medium">
           {getPackDescription(selectedPack)}
         </p>

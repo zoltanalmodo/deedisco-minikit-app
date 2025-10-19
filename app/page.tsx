@@ -189,7 +189,7 @@ export default function Home() {
         ))}
       </div>
 
-      <div className="mt-2 mb-2 flex justify-center w-full">
+      <div className="mt-4 mb-2 flex justify-center w-full">
         <Link href="/pack-selection">
           <button
             type="button"
