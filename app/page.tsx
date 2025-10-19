@@ -173,7 +173,7 @@ export default function Home() {
       </header>
 
       {/* Carousel container - testing deployment after revert */}
-      <div className="carousel-container w-full sm:w-[450px] aspect-square m-0 p-0 sm:mx-auto">
+      <div className="carousel-container w-[360px] h-[360px] sm:w-[450px] sm:h-[450px] m-0 p-0 mx-auto">
         {carouselData.map((carousel, index) => (
           <div
             key={carousel.id}
