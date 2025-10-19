@@ -16,6 +16,31 @@ body {
   background-color: #1a1a1a; /* Dark background */
   color: #e0e0e0; /* Light text for dark background */
   line-height: 1.6;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+  overflow-y: auto; /* Allow vertical scrolling */
+}
+
+/* Hide scrollbars but keep functionality */
+html {
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+  overflow-y: auto; /* Allow vertical scrolling */
+}
+
+/* Hide scrollbars on webkit browsers (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+  background: transparent;
+}
+
+/* Hide scrollbars on Firefox */
+html {
+  scrollbar-width: none;
+}
+
+/* Ensure no horizontal overflow on all elements */
+* {
+  max-width: 100%;
 }
 
 .container {
