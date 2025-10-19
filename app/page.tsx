@@ -79,6 +79,12 @@ export default function Home() {
     return () => clearTimeout(timer)
   }, [setFrameReady, isFrameReady])
 
+  // Preload first pack image for pack selection page
+  useEffect(() => {
+    const img = new Image()
+    img.src = "/pack-all-random.png"
+  }, [])
+
   // Carousels still have their own selection state for browsing,
   // but MintButton will ignore it and mint a random top/mid/bot.
   const [selectedImages, setSelectedImages] = useState([0, 0, 0])
