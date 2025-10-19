@@ -126,7 +126,7 @@ export default function Home() {
 
   return (
     <main
-      className="flex flex-col items-center w-full max-w-[450px] mx-auto px-0 py-1 bg-[#1a1a1a] text-white no-scrollbar"
+      className="flex flex-col items-center w-full max-w-[450px] mx-auto px-0 py-1 bg-white text-black no-scrollbar"
       style={{ 
         minHeight: "100vh", 
         overflowY: "auto",
@@ -147,7 +147,7 @@ export default function Home() {
         </p>
         
         {/* Click progress indicator - always visible to maintain layout */}
-        <div className="text-xs text-blue-400 mb-1 flex items-center justify-center gap-2">
+        <div className="text-xs text-blue-600 mb-1 flex items-center justify-center gap-2">
           <span>Explore the collection! </span>
           <div className="flex gap-1">
             {Array.from({ length: CLICK_THRESHOLD }, (_, i) => (
