@@ -23,6 +23,14 @@ export default function PackCarousel({
 }: PackCarouselProps) {
   const [currentIndex, setCurrentIndex] = useState(selectedIndex)
 
+  // Preload all images in the background
+  useEffect(() => {
+    packs.forEach((pack) => {
+      const img = new Image()
+      img.src = pack.src
+    })
+  }, [packs])
+
   // Reset to selected index when it changes
   useEffect(() => {
     setCurrentIndex(selectedIndex)
