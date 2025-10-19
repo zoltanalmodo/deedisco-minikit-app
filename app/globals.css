@@ -88,6 +88,12 @@ h1 {
   font-weight: 900 !important;
 }
 
+/* Fraunces Black for all buttons */
+button {
+  font-family: 'Fraunces', serif !important;
+  font-weight: 900 !important;
+}
+
 .container {
   max-width: 1200px;
   margin: 0 auto;

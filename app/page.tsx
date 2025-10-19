@@ -208,7 +208,9 @@ export default function Home() {
             className="text-white font-semibold py-2 px-4 sm:py-3 sm:px-6 shadow-lg transition-colors text-sm sm:text-base"
             style={{ 
               backgroundColor: '#131312',
-              borderRadius: '50px' // Capsule shape - half the height
+              borderRadius: '50px', // Capsule shape - half the height
+              fontFamily: 'Fraunces, serif',
+              fontWeight: 900
             }}
             onMouseEnter={(e) => (e.target as HTMLButtonElement).style.backgroundColor = '#0a0a0a'}
             onMouseLeave={(e) => (e.target as HTMLButtonElement).style.backgroundColor = '#131312'}
