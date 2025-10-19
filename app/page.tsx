@@ -131,7 +131,7 @@ export default function Home() {
           Mint 3 Cards - top, mid, bot.
         </h2>
         <p className="text-xs sm:text-sm text-gray-400 mb-1">
-          Collect pieces, assemble originals, trade, complete or create new sets and earn license fees when they are reused.
+          Collect, trade, complete originals or create new sets and earn license fees when they are reused.
         </p>
         
         {/* Click progress indicator - always visible to maintain layout */}
@@ -160,7 +160,7 @@ export default function Home() {
               >
                 Reset
               </button>
-              <span> to explore more parts!</span>
+              <span> to explore more!</span>
             </div>
           )}
         </div>
