@@ -82,6 +82,12 @@ html {
   }
 }
 
+/* Fraunces Black for all H1 elements */
+h1 {
+  font-family: 'Fraunces', serif !important;
+  font-weight: 900 !important;
+}
+
 .container {
   max-width: 1200px;
   margin: 0 auto;
