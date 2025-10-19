@@ -65,7 +65,7 @@ export default function PackSelection() {
       style={{ minHeight: "100vh", overflowY: "auto" }}
     >
       <header className="text-center mb-1 pt-1 pb-1">
-        <h1 className="text-lg sm:text-xl font-bold mb-1" style={{ color: '#121213', fontFamily: 'Fraunces', fontWeight: 900 }}>
+        <h1 className="text-lg sm:text-xl font-bold mb-1" style={{ color: '#121314 !important', fontFamily: 'Fraunces', fontWeight: 900 }}>
           Pick a pack and make it yours.
         </h1>
       </header>
@@ -82,7 +82,7 @@ export default function PackSelection() {
 
       {/* Pack Description */}
       <div className="text-center mb-3">
-        <p className="text-sm font-medium" style={{ color: '#121213' }}>
+        <p className="text-sm font-medium" style={{ color: '#121314 !important' }}>
           {getPackDescription(selectedPack)}
         </p>
       </div>

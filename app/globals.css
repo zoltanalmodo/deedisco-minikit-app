@@ -82,6 +82,11 @@ html {
   }
 }
 
+/* Force H1 color specifically on all devices */
+h1 {
+  color: #121314 !important;
+}
+
 /* Fraunces Black for all H1 elements */
 h1 {
   font-family: 'Fraunces', serif !important;
