@@ -91,7 +91,10 @@ export default function MintButton({ randomFrom, onMint, customButtonText, showO
       <Dialog.Trigger asChild>
         <button
           type="button"
-          className="bg-purple-600 hover:bg-purple-700 text-white font-semibold py-2 px-4 sm:py-3 sm:px-6 rounded-lg shadow-lg transition-colors text-sm sm:text-base"
+          className="text-white font-semibold py-2 px-4 sm:py-3 sm:px-6 rounded-lg shadow-lg transition-colors text-sm sm:text-base"
+          style={{ backgroundColor: '#2563eb' }}
+          onMouseEnter={(e) => e.target.style.backgroundColor = '#1d4ed8'}
+          onMouseLeave={(e) => e.target.style.backgroundColor = '#2563eb'}
         >
           {customButtonText || "Buy a pack of random parts"}
         </button>
@@ -173,7 +176,10 @@ export default function MintButton({ randomFrom, onMint, customButtonText, showO
               type="button"
               onClick={handleMint}
               disabled={isMinting || pack.length !== 3}
-              className="inline-flex items-center justify-center rounded-md bg-purple-600 px-4 py-2 text-sm font-semibold text-white shadow hover:bg-purple-700 disabled:cursor-not-allowed disabled:opacity-60"
+              className="inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-semibold text-white shadow disabled:cursor-not-allowed disabled:opacity-60"
+              style={{ backgroundColor: '#2563eb' }}
+              onMouseEnter={(e) => e.target.style.backgroundColor = '#1d4ed8'}
+              onMouseLeave={(e) => e.target.style.backgroundColor = '#2563eb'}
             >
               {isMinting ? (
                 <>

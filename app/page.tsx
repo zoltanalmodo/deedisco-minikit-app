@@ -193,7 +193,10 @@ export default function Home() {
         <Link href="/pack-selection">
           <button
             type="button"
-            className="bg-purple-600 hover:bg-purple-700 text-white font-semibold py-2 px-4 sm:py-3 sm:px-6 rounded-lg shadow-lg transition-colors text-sm sm:text-base"
+            className="text-white font-semibold py-2 px-4 sm:py-3 sm:px-6 rounded-lg shadow-lg transition-colors text-sm sm:text-base"
+            style={{ backgroundColor: '#2563eb' }}
+            onMouseEnter={(e) => e.target.style.backgroundColor = '#1d4ed8'}
+            onMouseLeave={(e) => e.target.style.backgroundColor = '#2563eb'}
           >
             Buy a 3-card pack
           </button>
