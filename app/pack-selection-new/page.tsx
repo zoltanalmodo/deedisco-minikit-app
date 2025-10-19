@@ -69,10 +69,6 @@ export default function PackSelectionNewPage() {
   const [selectedPack, setSelectedPack] = useState(0)
   const [selectedImage, setSelectedImage] = useState(0)
 
-  const handlePackSelect = (packIndex: number) => {
-    setSelectedPack(packIndex)
-    setSelectedImage(0) // Reset to first image when changing packs
-  }
 
   const handleImageSelect = (imageIndex: number) => {
     setSelectedImage(imageIndex)
