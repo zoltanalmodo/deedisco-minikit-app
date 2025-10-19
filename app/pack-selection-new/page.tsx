@@ -66,7 +66,6 @@ const getPackButtonText = (packIndex: number) => {
 }
 
 export default function PackSelectionNewPage() {
-  const [selectedPack, setSelectedPack] = useState(0)
   const [selectedImage, setSelectedImage] = useState(0)
 
 
@@ -104,7 +103,7 @@ export default function PackSelectionNewPage() {
           }}
         >
           <ImageCarousel
-            images={packData[selectedPack].images}
+            images={packData[0].images}
             selectedIndex={selectedImage}
             onSelect={handleImageSelect}
             onNavigationClick={() => {}}
@@ -118,7 +117,7 @@ export default function PackSelectionNewPage() {
       {/* Pack Description */}
       <div className="text-center mb-3 mt-4">
         <p className="text-sm text-gray-300 font-medium">
-          {getPackDescription(selectedPack)}
+          {getPackDescription(0)}
         </p>
       </div>
 
@@ -128,7 +127,7 @@ export default function PackSelectionNewPage() {
           type="button"
           className="bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200 text-sm sm:text-base"
         >
-          {getPackButtonText(selectedPack)}
+          {getPackButtonText(0)}
         </button>
       </div>
 
