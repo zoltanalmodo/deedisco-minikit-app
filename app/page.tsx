@@ -126,8 +126,14 @@ export default function Home() {
 
   return (
     <main
-      className="flex flex-col items-center w-full max-w-[450px] mx-auto px-0 py-1 bg-[#1a1a1a] text-white"
-      style={{ minHeight: "100vh", overflowY: "auto" }}
+      className="flex flex-col items-center w-full max-w-[450px] mx-auto px-0 py-1 bg-[#1a1a1a] text-white no-scrollbar"
+      style={{ 
+        minHeight: "100vh", 
+        overflowY: "auto",
+        overflowX: "hidden",
+        scrollbarWidth: "none",
+        msOverflowStyle: "none"
+      }}
     >
       <header className="text-center mb-1">
         <h1 className="text-lg sm:text-xl font-bold mb-1 text-gray-300">
