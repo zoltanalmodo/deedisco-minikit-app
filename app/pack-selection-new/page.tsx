@@ -136,19 +136,6 @@ export default function PackSelectionNewPage() {
         </button>
       </div>
 
-      {/* Pack Selection Dots */}
-      <div className="flex justify-center gap-2 mb-4">
-        {packData.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => handlePackSelect(index)}
-            className={`w-3 h-3 rounded-full transition-colors duration-200 ${
-              index === selectedPack ? "bg-blue-400" : "bg-gray-600"
-            }`}
-            aria-label={`Select pack ${index + 1}`}
-          />
-        ))}
-      </div>
     </main>
   )
 }
