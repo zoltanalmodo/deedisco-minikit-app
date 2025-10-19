@@ -3,46 +3,14 @@
 import { useState } from "react"
 import Link from "next/link"
 import { ChevronLeft } from "lucide-react"
-import ImageCarousel from "../components/carousel/image-carousel"
+import PackCarousel from "../components/carousel/pack-carousel"
 
-// Pack data for the new structure
+// Pack data - 4 pack options as requested (from old pack selection page)
 const packData = [
-  {
-    id: "all-random",
-    name: "3 Cards Pack (all random)",
-    images: [
-      { id: 1, src: "/pack-all-random.png", alt: "All Random Pack" },
-      { id: 2, src: "/pack-all-random.png", alt: "All Random Pack" },
-      { id: 3, src: "/pack-all-random.png", alt: "All Random Pack" }
-    ]
-  },
-  {
-    id: "guaranteed-top",
-    name: "3 Cards Pack (guaranteed top)",
-    images: [
-      { id: 4, src: "/pack-guaranteed-top.png", alt: "Guaranteed Top Pack" },
-      { id: 5, src: "/pack-guaranteed-top.png", alt: "Guaranteed Top Pack" },
-      { id: 6, src: "/pack-guaranteed-top.png", alt: "Guaranteed Top Pack" }
-    ]
-  },
-  {
-    id: "guaranteed-mid",
-    name: "3 Cards Pack (guaranteed mid)",
-    images: [
-      { id: 7, src: "/pack-guaranteed-mid.png", alt: "Guaranteed Mid Pack" },
-      { id: 8, src: "/pack-guaranteed-mid.png", alt: "Guaranteed Mid Pack" },
-      { id: 9, src: "/pack-guaranteed-mid.png", alt: "Guaranteed Mid Pack" }
-    ]
-  },
-  {
-    id: "guaranteed-bot",
-    name: "3 Cards Pack (guaranteed bot)",
-    images: [
-      { id: 10, src: "/pack-guaranteed-bot.png", alt: "Guaranteed Bot Pack" },
-      { id: 11, src: "/pack-guaranteed-bot.png", alt: "Guaranteed Bot Pack" },
-      { id: 12, src: "/pack-guaranteed-bot.png", alt: "Guaranteed Bot Pack" }
-    ]
-  }
+  { id: 1, src: "/pack-all-random.png", alt: "3 Cards Pack (all random)", name: "3 Cards Pack (all random)" },
+  { id: 2, src: "/pack-guaranteed-top.png", alt: "3 Cards Pack (guaranteed top)", name: "3 Cards Pack (guaranteed top)" },
+  { id: 3, src: "/pack-guaranteed-mid.png", alt: "3 Cards Pack (guaranteed mid)", name: "3 Cards Pack (guaranteed mid)" },
+  { id: 4, src: "/pack-guaranteed-bot.png", alt: "3 Cards Pack (guaranteed bot)", name: "3 Cards Pack (guaranteed bot)" },
 ]
 
 const getPackDescription = (packIndex: number) => {
@@ -66,11 +34,10 @@ const getPackButtonText = (packIndex: number) => {
 }
 
 export default function PackSelectionNewPage() {
-  const [selectedImage, setSelectedImage] = useState(0)
+  const [selectedPack, setSelectedPack] = useState(0)
 
-
-  const handleImageSelect = (imageIndex: number) => {
-    setSelectedImage(imageIndex)
+  const handlePackSelect = (packIndex: number) => {
+    setSelectedPack(packIndex)
   }
 
   return (
@@ -94,30 +61,18 @@ export default function PackSelectionNewPage() {
       </header>
 
       {/* Pack Carousel - Same structure as main page */}
-      <div className="carousel-container w-[360px] h-[360px] sm:w-[450px] sm:h-[450px] m-0 p-0 mx-auto">
-        <div
-          className="m-0 p-0"
-          style={{ 
-            margin: "0px", 
-            padding: "0px"
-          }}
-        >
-          <ImageCarousel
-            images={packData[0].images}
-            selectedIndex={selectedImage}
-            onSelect={handleImageSelect}
-            onNavigationClick={() => {}}
-            showOverlay={false}
-            resetTrigger={0}
-            fullHeight={true}
-          />
-        </div>
+      <div className="w-full mb-4">
+        <PackCarousel
+          packs={packData}
+          selectedIndex={selectedPack}
+          onSelect={handlePackSelect}
+        />
       </div>
 
       {/* Pack Description */}
       <div className="text-center mb-3 mt-4">
         <p className="text-sm text-gray-300 font-medium">
-          {getPackDescription(0)}
+          {getPackDescription(selectedPack)}
         </p>
       </div>
 
@@ -127,7 +82,7 @@ export default function PackSelectionNewPage() {
           type="button"
           className="bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200 text-sm sm:text-base"
         >
-          {getPackButtonText(0)}
+          {getPackButtonText(selectedPack)}
         </button>
       </div>
 
