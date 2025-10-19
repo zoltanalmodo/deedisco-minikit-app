@@ -142,36 +142,6 @@ export default function Home() {
         <h2 className="text-base sm:text-lg font-semibold mb-1">
           Mint 3 Cards - top, mid, bot.
         </h2>
-        {/* Click progress indicator - always visible to maintain layout */}
-        <div className="text-xs mb-1 flex items-center justify-center gap-2 progress-indicator">
-          <span>Explore the collection! </span>
-          <div className="flex gap-1">
-            {Array.from({ length: CLICK_THRESHOLD }, (_, i) => (
-              <div
-                key={i}
-                className={`w-2 h-2 rounded-full ${
-                  i >= (CLICK_THRESHOLD - clickCount) ? "bg-gray-600" : "bg-blue-400"
-                }`}
-              />
-            ))}
-          </div>
-        </div>
-        
-        {/* Notification space - always reserved to maintain layout */}
-        <div className="mb-1 min-h-[20px] flex items-center justify-center">
-          {showOverlay && (
-            <div className="text-xs animate-pulse flex items-center justify-center gap-2 notification-text">
-              <span>🔒 Images are now hidden - </span>
-              <button
-                onClick={handleReset}
-                className="text-xs px-2 py-1 rounded transition-colors reset-button"
-              >
-                Reset
-              </button>
-              <span> to explore more!</span>
-            </div>
-          )}
-        </div>
       </header>
 
       {/* Carousel container - testing deployment after revert */}
@@ -195,6 +165,37 @@ export default function Home() {
             />
           </div>
         ))}
+      </div>
+
+      {/* Progress indicator and notification moved below carousel */}
+      <div className="text-xs mb-1 flex items-center justify-center gap-2 progress-indicator">
+        <span>Explore the collection! </span>
+        <div className="flex gap-1">
+          {Array.from({ length: CLICK_THRESHOLD }, (_, i) => (
+            <div
+              key={i}
+              className={`w-2 h-2 rounded-full ${
+                i >= (CLICK_THRESHOLD - clickCount) ? "bg-gray-600" : "bg-blue-400"
+              }`}
+            />
+          ))}
+        </div>
+      </div>
+      
+      {/* Notification space */}
+      <div className="mb-1 min-h-[20px] flex items-center justify-center">
+        {showOverlay && (
+          <div className="text-xs animate-pulse flex items-center justify-center gap-2 notification-text">
+            <span>🔒 Images are now hidden - </span>
+            <button
+              onClick={handleReset}
+              className="text-xs px-2 py-1 rounded transition-colors reset-button"
+            >
+              Reset
+            </button>
+            <span> to explore more!</span>
+          </div>
+        )}
       </div>
 
       <div className="mt-4 mb-2 flex justify-center w-full">
