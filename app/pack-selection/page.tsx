@@ -9,10 +9,10 @@ import { ChevronLeft } from "lucide-react"
 
 // Pack data - 4 pack options as requested
 const packData = [
-  { id: 1, src: "/pack-all-random.png", alt: "3 Cards Pack (all random)", name: "3 Cards Pack (all random)" },
-  { id: 2, src: "/pack-guaranteed-top.png", alt: "3 Cards Pack (guaranteed top)", name: "3 Cards Pack (guaranteed top)" },
-  { id: 3, src: "/pack-guaranteed-mid.png", alt: "3 Cards Pack (guaranteed mid)", name: "3 Cards Pack (guaranteed mid)" },
-  { id: 4, src: "/pack-guaranteed-bot.png", alt: "3 Cards Pack (guaranteed bot)", name: "3 Cards Pack (guaranteed bot)" },
+  { id: 1, src: "/pack-all-random.png", alt: "All Random Pack", name: "All Random Pack" },
+  { id: 2, src: "/pack-guaranteed-top.png", alt: "Guaranteed Top Pack", name: "Guaranteed Top Pack" },
+  { id: 3, src: "/pack-guaranteed-mid.png", alt: "Guaranteed Mid Pack", name: "Guaranteed Mid Pack" },
+  { id: 4, src: "/pack-guaranteed-bot.png", alt: "Guaranteed Bot Pack", name: "Guaranteed Bot Pack" },
 ]
 
 export default function PackSelection() {
