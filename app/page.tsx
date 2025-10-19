@@ -139,15 +139,15 @@ export default function Home() {
         <h1 className="text-lg sm:text-xl font-bold mb-1">
           Build Your Collection!
         </h1>
-        <h2 className="text-base sm:text-lg font-semibold mb-1" style={{ color: '#121314 !important' }}>
+        <h2 className="text-base sm:text-lg font-semibold mb-1">
           Mint 3 Cards - top, mid, bot.
         </h2>
-        <p className="text-xs sm:text-sm mb-1" style={{ color: '#121314 !important' }}>
+        <p className="text-xs sm:text-sm mb-1">
           Collect, trade, complete originals or create new sets and earn license fees when they are reused.
         </p>
         
         {/* Click progress indicator - always visible to maintain layout */}
-        <div className="text-xs text-blue-600 mb-1 flex items-center justify-center gap-2">
+        <div className="text-xs mb-1 flex items-center justify-center gap-2 progress-indicator">
           <span>Explore the collection! </span>
           <div className="flex gap-1">
             {Array.from({ length: CLICK_THRESHOLD }, (_, i) => (
@@ -164,11 +164,11 @@ export default function Home() {
         {/* Notification space - always reserved to maintain layout */}
         <div className="mb-1 min-h-[20px] flex items-center justify-center">
           {showOverlay && (
-            <div className="text-xs text-yellow-400 animate-pulse flex items-center justify-center gap-2">
+            <div className="text-xs animate-pulse flex items-center justify-center gap-2 notification-text">
               <span>🔒 Images are now hidden - </span>
               <button
                 onClick={handleReset}
-                className="text-xs bg-yellow-400/20 text-yellow-300 px-2 py-1 rounded hover:bg-yellow-400/30 transition-colors"
+                className="text-xs px-2 py-1 rounded transition-colors reset-button"
               >
                 Reset
               </button>

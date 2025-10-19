@@ -82,7 +82,7 @@ export default function PackSelection() {
 
       {/* Pack Description */}
       <div className="text-center mb-3">
-        <p className="text-sm font-medium" style={{ color: '#121314 !important' }}>
+        <p className="text-sm font-medium">
           {getPackDescription(selectedPack)}
         </p>
       </div>

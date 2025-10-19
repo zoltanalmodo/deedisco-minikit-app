@@ -75,14 +75,9 @@ html {
   height: 0 !important;
 }
 
-/* Force text color on mobile devices */
-@media (max-width: 768px) {
-  h2, p {
-    color: #121314 !important;
-  }
-}
+/* SINGLE SOURCE OF TRUTH FOR ALL TEXT ELEMENTS - MAXIMUM SPECIFICITY */
 
-/* SINGLE SOURCE OF TRUTH FOR ALL H1 ELEMENTS - MAXIMUM SPECIFICITY */
+/* H1 Elements - Dark color with Fraunces Black */
 h1,
 body h1,
 main h1,
@@ -92,6 +87,48 @@ header h1,
   color: #131212 !important;
   font-family: 'Fraunces', serif !important;
   font-weight: 900 !important;
+}
+
+/* H2 Elements - Dark color */
+h2,
+body h2,
+main h2,
+div h2,
+header h2,
+* h2 {
+  color: #121314 !important;
+}
+
+/* P Elements - Dark color */
+p,
+body p,
+main p,
+div p,
+header p,
+* p {
+  color: #121314 !important;
+}
+
+/* Progress indicator text - Blue color */
+.progress-indicator,
+.progress-indicator span {
+  color: #2563eb !important;
+}
+
+/* Notification text - Yellow color */
+.notification-text,
+.notification-text span {
+  color: #fbbf24 !important;
+}
+
+/* Reset button - Yellow background with dark text */
+.reset-button {
+  background-color: rgba(251, 191, 36, 0.2) !important;
+  color: #fbbf24 !important;
+}
+
+.reset-button:hover {
+  background-color: rgba(251, 191, 36, 0.3) !important;
 }
 
 /* Fraunces Black for all buttons */
