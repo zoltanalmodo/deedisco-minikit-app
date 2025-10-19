@@ -142,10 +142,6 @@ export default function Home() {
         <h2 className="text-base sm:text-lg font-semibold mb-1">
           Mint 3 Cards - top, mid, bot.
         </h2>
-        <p className="text-xs sm:text-sm mb-1">
-          Collect, trade, complete originals or create new sets and earn license fees when they are reused.
-        </p>
-        
         {/* Click progress indicator - always visible to maintain layout */}
         <div className="text-xs mb-1 flex items-center justify-center gap-2 progress-indicator">
           <span>Explore the collection! </span>
@@ -222,6 +218,13 @@ export default function Home() {
             Buy a 3-card pack
           </button>
         </Link>
+      </div>
+
+      {/* Description text moved after buy button */}
+      <div className="text-center mb-2">
+        <p className="text-xs sm:text-sm">
+          Collect, trade, complete originals or create new sets and earn license fees when they are reused.
+        </p>
       </div>
 
     </main>
