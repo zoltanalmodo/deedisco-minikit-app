@@ -65,7 +65,7 @@ export default function PackSelection() {
       style={{ minHeight: "100vh", overflowY: "auto" }}
     >
       <header className="text-center mb-1 pt-1 pb-1">
-        <h1 className="text-lg sm:text-xl font-bold mb-1">
+        <h1 className="text-xl sm:text-2xl font-bold mb-1">
           Pick a pack and make it yours.
         </h1>
       </header>
