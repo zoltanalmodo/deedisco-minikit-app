@@ -205,12 +205,16 @@ export default function Home() {
         <Link href="/pack-selection">
           <button
             type="button"
-            className="text-white font-semibold py-2 px-4 sm:py-3 sm:px-6 shadow-lg transition-colors text-sm sm:text-base"
+            className="text-white font-semibold shadow-lg transition-colors text-sm sm:text-base"
             style={{ 
               backgroundColor: '#131312',
               borderRadius: '50px', // Capsule shape - half the height
               fontFamily: 'Fraunces, serif',
-              fontWeight: 900
+              fontWeight: 900,
+              paddingTop: '16px',
+              paddingBottom: '16px',
+              paddingLeft: '32px',
+              paddingRight: '32px'
             }}
             onMouseEnter={(e) => (e.target as HTMLButtonElement).style.backgroundColor = '#0a0a0a'}
             onMouseLeave={(e) => (e.target as HTMLButtonElement).style.backgroundColor = '#131312'}
