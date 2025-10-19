@@ -75,6 +75,13 @@ html {
   height: 0 !important;
 }
 
+/* Force text color on mobile devices */
+@media (max-width: 768px) {
+  h1, h2, p {
+    color: #121314 !important;
+  }
+}
+
 .container {
   max-width: 1200px;
   margin: 0 auto;
