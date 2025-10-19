@@ -175,7 +175,7 @@ export default function Home() {
             <div
               key={i}
               className={`w-2 h-2 rounded-full ${
-                i >= (CLICK_THRESHOLD - clickCount) ? "bg-gray-600" : "bg-blue-400"
+                i >= (CLICK_THRESHOLD - clickCount) ? "bg-gray-300" : "bg-blue-400"
               }`}
             />
           ))}
