@@ -73,9 +73,9 @@ export default function PackSelection() {
         </Link>
       </div>
 
-      <header className="text-center mb-1">
+      <header className="text-center mb-1 pt-1 pb-1">
         <h1 className="text-lg sm:text-xl font-bold mb-1 text-gray-300">
-          Find a pack you like and make it yours.
+          Pick a pack and make it yours.
         </h1>
       </header>
 
