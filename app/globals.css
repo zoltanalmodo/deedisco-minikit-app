@@ -124,7 +124,7 @@ header p,
 /* Notification text - Inter Semi-Bold Yellow */
 .notification-text,
 .notification-text span {
-  color: #DA9573 !important;
+  color: #a86c4f !important;
   font-family: 'Inter', sans-serif !important;
   font-weight: 600 !important;
 }
