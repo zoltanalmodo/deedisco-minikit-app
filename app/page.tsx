@@ -140,7 +140,7 @@ export default function Home() {
           Build Your Collection!
         </h1>
         <h2 className="text-xs sm:text-sm font-semibold mb-1">
-          Mint 3 Cards - top, mid, bot.
+          Combine 3 Cards - Top, Middle, Bottom
         </h2>
       </header>
 
