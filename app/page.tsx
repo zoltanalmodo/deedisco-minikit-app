@@ -225,7 +225,8 @@ export default function Home() {
       {/* Description text moved after buy button */}
       <div className="text-center mb-2">
         <p className="text-xs sm:text-sm">
-          Collect, trade, complete originals or create new sets and earn license fees when they are reused.
+          Collect, trade, complete originals or create new sets.<br />
+          Earn license fees on every reuse!
         </p>
       </div>
 
