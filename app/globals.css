@@ -108,8 +108,8 @@ main p,
 div p,
 header p,
 * p {
-  color: #121314 !important;
-  font-family: 'Inter', sans-serif !important;
+  color: #121314;
+  font-family: 'Inter', sans-serif;
   font-weight: 400 !important;
 }
 
